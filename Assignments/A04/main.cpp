@@ -5,7 +5,7 @@
 *  Label:            A04
 *  Title:            Basic Project Organization
 *  Course:           CMPS 2143
-*  Semester:         Fall T&R 12:00 - 12:50
+*  Semester:         Fall MWF 12:00 - 12:50
 * 
 *  Description:
 *        This program demonstrates how a circular array queue functions.
@@ -31,7 +31,7 @@ using namespace std;
  *      - CircularyArrayQue(int size)
  *      - void Push(int item)
  *      - int Pop()
- *      -  friend ostream &operator<<(ostream &os, const CircularArrayQue &other)
+ *      - friend ostream &operator<<(ostream &os, const CircularArrayQue &other)
  * 
  * Private Methods:
  *      - void init(int size = 0)
@@ -51,8 +51,7 @@ private:
     int Rear;        // rear of the queue
     int QueSize;     // size of the queue
     int CurrentSize; // number of items in the queue
-    
-    
+
     /**
      * Private: init
      * 
@@ -71,7 +70,6 @@ private:
         QueSize = size;
     }
 
-    
     /**
      * Private: Full
      * 
@@ -109,7 +107,6 @@ public:
         init(size);
     }
 
-    
     /**
      * Public: Push
      * 
