@@ -1,3 +1,22 @@
+
+/*****************************************************************************
+*                    
+*  Author:           (your name)
+*  Email:            (your email address)
+*  Label:            (program's label from assignment list)
+*  Title:            (short title from assignment, if any)
+*  Course:           (course number and prefix)
+*  Semester:         (semester and year)
+* 
+*  Description:
+*        describe program here thoroughly 
+* 
+*  Usage:
+*        how to use the program if necessary
+* 
+*  Files:            (list of all source files used in this program)
+*****************************************************************************/
+
 #include <iostream>
 
 using namespace std;
