@@ -80,7 +80,7 @@ private:
      *      - none
      * 
      * Returns:
-     *      - returns true if the Queue is full
+     *      - returns true (bool) if the Queue is full
      */
     bool Full() {
         return CurrentSize == QueSize;
@@ -140,7 +140,7 @@ public:
      *      - none
      * 
      * Returns:
-     *      - returns the first item in the queue
+     *      - returns the first item (int) in the queue
      */
     int Pop() {
         int temp = Container[Front];
