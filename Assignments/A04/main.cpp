@@ -1,26 +1,48 @@
 
 /*****************************************************************************
 *                    
-*  Author:           (your name)
-*  Email:            (your email address)
-*  Label:            (program's label from assignment list)
-*  Title:            (short title from assignment, if any)
-*  Course:           (course number and prefix)
-*  Semester:         (semester and year)
+*  Author:           Angel Badillo
+*  Email:            badilloa022402@gmail.com
+*  Label:            A04
+*  Title:            Basic Project Organization
+*  Course:           CMPS 2143
+*  Semester:         Fall T&R 12:00 - 12:50
 * 
 *  Description:
-*        describe program here thoroughly 
+*        This program demonstrates how a circular array queue functions.
 * 
 *  Usage:
-*        how to use the program if necessary
+*        Just compile and execute it.
 * 
-*  Files:            (list of all source files used in this program)
+*  Files:            None
 *****************************************************************************/
 
 #include <iostream>
 
 using namespace std;
 
+/**
+ * CircularArrayQue
+ * 
+ * Description:
+ *      It is a circular array queue.
+ * 
+ * Public Methods:
+ *      - 
+ *      -
+ *      -
+ * 
+ * Private Methods:
+ *      - A list of 
+ *      - each private method
+ *      - with return types
+ * 
+ * Usage: 
+ * 
+ *      - examples of how
+ *      - to use your class 
+ *      
+ */
 
 class CircularArrayQue {
 private:
