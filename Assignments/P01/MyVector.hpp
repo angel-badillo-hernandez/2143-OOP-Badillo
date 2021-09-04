@@ -13,3 +13,20 @@ struct node {
         next = NULL;
     }
 };
+
+class MyVector
+{
+private:
+    /* data */
+public:
+    MyVector(/* args */);
+    ~MyVector();
+};
+
+MyVector::MyVector()
+{
+}
+
+MyVector::~MyVector()
+{
+}
