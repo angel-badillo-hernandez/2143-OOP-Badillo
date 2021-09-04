@@ -3,12 +3,12 @@
 *  Author:           Angel Badillo
 *  Email:            badilloa022402@gmail.com
 *  Label:            P01
-*  Title:            m
+*  Title:            Program 1
 *  Course:           CMPS 2143
 *  Semester:         Fall MWF 12:00 - 12:50
 * 
 *  Description:
-*        Stuff
+*        Linked List Example
 * 
 *  Usage:
 *        Stuff
@@ -16,17 +16,6 @@
 *  Files:            main.cpp
 *****************************************************************************/
 
-/**
-*                    
-*  Author:           Terry
-*  Title:            Linked List Example
-*  Course:           2143
-*  Semester:         Fall 2021
-* 
-*  Description:
-*        Linked List Example 
-* 
-*/
 #include <fstream>
 #include <iostream>
 #include <string>
