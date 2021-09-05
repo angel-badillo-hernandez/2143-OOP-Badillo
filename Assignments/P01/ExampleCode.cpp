@@ -23,12 +23,12 @@
 using namespace std;
 
 // Node for our linked list
-struct node {
+struct Node {
     int data;  // data value (could be a lot more values)
 
-    node* next;  // we always need a "link" in a linked list
+    Node* next;  // we always need a "link" in a linked list
 
-    node(int x) {  // cunstructor to make adding values easy
+    Node(int x) {  // cunstructor to make adding values easy
         data = x;
         next = NULL;
     }
@@ -78,9 +78,9 @@ void printArr(int* arr, int size) {
     cout << "\n";
 }
 
-class LinkedList {
+class myVector {
 private:
-    node* head;  // base pointer of list
+    Node* head;  // base pointer of list
 public:
     /**
      * @brief Default Constructor 
@@ -90,7 +90,7 @@ public:
      * @param void
      * @return void
      */
-    LinkedList() {
+    myVector() {
         head = NULL;  // NULL = zeros
                       // and zeros imply empty
     }
@@ -106,7 +106,7 @@ public:
      * 
      * @return void
      */
-    LinkedList(int A[], int size) {
+    myVector(int A[], int size) {
         head = NULL;  // NULL = zeros
                       // and zeros imply empty
 
@@ -116,7 +116,7 @@ public:
     }
 
     void Push(int x) {
-        node* tempPtr = new node(x);  // create a new node and
+        Node* tempPtr = new Node(x);  // create a new node and
                                       // add data to it
 
         if (!head) {  // `!head` implies empty list
@@ -132,7 +132,7 @@ public:
     }
 
     void print() {
-        node* temp = head;  // temp pointer copies head
+        Node* temp = head;  // temp pointer copies head
 
         while (temp) {  // this loops until temp is NULL
                         // same as `while(temp != NULL)`
@@ -146,13 +146,13 @@ public:
         cout << endl;
     }
 
-    ~LinkedList() {
+    ~myVector() {
     }
 };
 
 int main() {
     int        A[] = {1, 2, 3, 4, 5, 6};    // array initialized with 1-6
-    LinkedList L(A, 6);                     // linked list built with array
+    myVector L(A, 6);                     // linked list built with array
 
     L.print();  // print the list
 
@@ -162,6 +162,6 @@ int main() {
     loadArr("input.dat", B, size);  // Stand alone function to
                                     //    read values in from file
     printArr(B, size);              // Stand alone function to print array
-    LinkedList L2(B, size);         // Create 2nd instance of list
+    myVector L2(B, size);         // Create 2nd instance of list
     L2.print();                     // Print list 2
 }
