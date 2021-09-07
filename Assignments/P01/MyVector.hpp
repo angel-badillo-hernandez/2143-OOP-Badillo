@@ -63,11 +63,10 @@ public:
     int index;
     Node* next;  // we always need a "link" in a linked list
 
-    Node(int data, int index, Node* next = nullptr)
+    Node(int data, int index)
     {
         this->data = data;
         this->index = index;
-        this->next = next;
     }
 };
 
@@ -103,15 +102,16 @@ public:
      */
     myVector(int* A, int size) {
         head = tail = nullptr;
-        this->size = size;
+        this->size = 0;
 
         for (int i = 0; i < size; i++) {
             Push(A[i]);
         }
+        this->size = size;
     }
 
     void Push(int x) {
-        Node* tempPtr = new Node(x, 1);  // create a new node and
+        Node* tempPtr = new Node(x, size);  // create a new node and
                                       // add data to it
 
         if (!head) {  // `!head` implies empty list
@@ -123,6 +123,22 @@ public:
         } else {                   // list not empty
             tempPtr->next = head;  // point tempPtr's next to what head points to
             head = tempPtr;        // now point head to tempPtr
+        }
+        size++;
+    }
+
+    int popRear()
+    {
+        if(!tail)
+        {
+            int temp = tail->data;
+            Node* tempPtr = tail;
+            tail->prev = tail;
+            tail->next = nullptr;
+            
+
+            delete tempPtr;
+            
         }
     }
 
@@ -141,6 +157,11 @@ public:
         cout << endl;
     }
 
-    ~myVector() {
+    ~myVector()
+    {
+        for(int i = 0; i < size; i++)
+        {
+            Pop()
+        }
     }
 };
