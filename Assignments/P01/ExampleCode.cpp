@@ -111,11 +111,11 @@ public:
                       // and zeros imply empty
 
         for (int i = 0; i < size; i++) {
-            Push(A[i]);
+            pushRear(A[i]);
         }
     }
 
-    void Push(int x) {
+    void pushRear(int x) {
         Node* tempPtr = new Node(x);  // create a new node and
                                       // add data to it
 

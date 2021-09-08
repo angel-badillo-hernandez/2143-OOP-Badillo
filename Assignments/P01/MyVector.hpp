@@ -61,107 +61,42 @@ class Node
 public:
     int data;  // data value (could be a lot more values)
     int index;
+    Node* prev;
     Node* next;  // we always need a "link" in a linked list
 
-    Node(int data, int index)
-    {
-        this->data = data;
-        this->index = index;
-    }
+    Node(int data, Node* prev = nullptr, Node* next = nullptr);
+};
+
+class DLList
+{
+private:
+    Node* head;
+    Node* tail;
+    int size;
+
+public:
+    DLList();
+    
+    DLList(int* A, int size);
+    
+    DLList(string fileName);
+
+    void pushFront(int x);
+
+    void pushRear(int x);
+
+    void pushAt(int i, int x);
+
+    int popFront();
+    
+    int popRear();
+
+    void print();
 };
 
 class myVector {
 private:
-    Node* head;  // base pointer of list
-    Node* tail;  // end pointer of list
-    int size;
+
 public:
-    /**
-     * @brief Default Constructor 
-     * 
-     * Creates a new Linked List object.
-     * 
-     * @param void
-     * @return void
-     */
-    myVector() {
-        head = tail = nullptr;
-        size = 0;
-    }
 
-    /**
-     * @brief Overloaded Constructor 
-     * 
-     * Creates a new Linked List object from 
-     * an array of values.
-     * 
-     * @param int* A - array of values
-     * @param int size - size of array
-     * 
-     * @return void
-     */
-    myVector(int* A, int size) {
-        head = tail = nullptr;
-        this->size = 0;
-
-        for (int i = 0; i < size; i++) {
-            Push(A[i]);
-        }
-        this->size = size;
-    }
-
-    void Push(int x) {
-        Node* tempPtr = new Node(x, size);  // create a new node and
-                                      // add data to it
-
-        if (!head) {  // `!head` implies empty list
-                      // So does `head == NULL`
-
-            head = tempPtr;  // `head = tempPtr` places addrress of
-                             // tempPtr in head (points head to tempPtr)
-
-        } else {                   // list not empty
-            tempPtr->next = head;  // point tempPtr's next to what head points to
-            head = tempPtr;        // now point head to tempPtr
-        }
-        size++;
-    }
-
-    int popRear()
-    {
-        if(!tail)
-        {
-            int temp = tail->data;
-            Node* tempPtr = tail;
-            tail->prev = tail;
-            tail->next = nullptr;
-            
-
-            delete tempPtr;
-            
-        }
-    }
-
-    void print() {
-        Node* temp = head;  // temp pointer copies head
-
-        while (temp) {  // this loops until temp is NULL
-                        // same as `while(temp != NULL)`
-
-            cout << temp->data;  // print data from node
-            if (temp->next) {
-                cout << "->";
-            }
-            temp = temp->next;  // move to next node
-        }
-        cout << endl;
-    }
-
-    ~myVector()
-    {
-        for(int i = 0; i < size; i++)
-        {
-            Pop()
-        }
-    }
 };
