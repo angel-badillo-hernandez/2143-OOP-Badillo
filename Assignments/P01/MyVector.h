@@ -67,7 +67,7 @@ public:
     Node(int data, Node* prev = nullptr, Node* next = nullptr);
 };
 
-class DLList
+class myVector
 {
 private:
     Node* head;
@@ -75,11 +75,11 @@ private:
     int size;
 
 public:
-    DLList();
+    myVector();
     
-    DLList(int* A, int size);
+    myVector(int* A, int size);
     
-    DLList(string fileName);
+    myVector(string fileName);
 
     void pushFront(int x);
 
@@ -92,11 +92,4 @@ public:
     int popRear();
 
     void print();
-};
-
-class myVector {
-private:
-
-public:
-
 };

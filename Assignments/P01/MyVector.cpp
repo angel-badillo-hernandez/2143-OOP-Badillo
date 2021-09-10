@@ -7,13 +7,13 @@ Node::Node(int data, Node *prev = nullptr, Node *next = nullptr)
     this->next = next;
 }
 
-DLList::DLList()
+myVector::myVector()
 {
     head = tail = nullptr;
     size = 0;
 }
 
-DLList::DLList(int *A, int size)
+myVector::myVector(int *A, int size)
 {
     head = tail = nullptr;
 
@@ -24,7 +24,7 @@ DLList::DLList(int *A, int size)
 
 }
 
-DLList::DLList(string fileName)
+myVector::myVector(string fileName)
 {
     ifstream infile;
     infile.open(fileName);
@@ -42,7 +42,7 @@ DLList::DLList(string fileName)
     infile.close();
 }
 
-void DLList::pushFront(int x)
+void myVector::pushFront(int x)
 {
     if (!head)
     {
@@ -62,7 +62,7 @@ void DLList::pushFront(int x)
     size++;
 }
 
-void DLList::pushRear(int x)
+void myVector::pushRear(int x)
 {
     if (!head)
     {
@@ -81,7 +81,7 @@ void DLList::pushRear(int x)
     size++;
 }
 
-void DLList::pushAt(int loc, int x)
+void myVector::pushAt(int loc, int x)
 {
     if( loc == 0)
     {
@@ -108,7 +108,7 @@ void DLList::pushAt(int loc, int x)
     }
 }
 
-int DLList::popFront()
+int myVector::popFront()
 {
     if(head)
     {
@@ -123,7 +123,7 @@ int DLList::popFront()
     }
 }
 
-int DLList::popRear()
+int myVector::popRear()
 {
     if (tail)
     {
@@ -138,7 +138,7 @@ int DLList::popRear()
     }
 }
 
-void DLList::print()
+void myVector::print()
 {
     Node *temp = head; // temp pointer copies head
 
