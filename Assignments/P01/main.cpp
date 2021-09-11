@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "MyVector.h"
+#include "MyVector.hpp"
 using namespace std;
 
 int main()
