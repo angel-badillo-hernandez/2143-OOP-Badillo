@@ -1,5 +1,5 @@
-#include <fstream>
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <limits>
 
@@ -7,6 +7,27 @@ using namespace std;
 
 const int INTMAX = numeric_limits<int>::max(); // Max value of int, used for errors
 
+/**
+ * Node
+ * 
+ * Description:
+ *      Creates a Node that can stored data, and has pointers meant for
+ *      the previous Node and next Node. Meant to be used in double linked list
+ * 
+ * Public Methods:
+ *                Node(int _data, Node *_prev = nullptr, Node *_next = nullptr)
+ * 
+ * Private Methods:
+ *      - None
+ * 
+ * Usage: 
+ * 
+ *      Node(val, nullptr, head);   // Creates an instance of Node
+ *                                  // stores val in Node.data
+ *                                  // sets Node.prev to nullptr
+ *                                  // sets Node.next to Node* head
+ *       
+ */
 class Node
 {
 public:
@@ -23,6 +44,48 @@ public:
     }
 };
 
+/**
+ * MyVector
+ * 
+ * Description:
+ *      Creates a vector. The vector is based off of a double linked list.
+ *      It's size changes dynamically and vectors can be appended/prepended
+ *      to other vectors.
+ * 
+ * Public Methods:
+ *              MyVector()
+ *              MyVector(MyVector& V2)
+ *              MyVector(int* A, int size)
+ *              MyVector(string fileName)
+ *              ~MyVector()
+ *      void    pushFront(int val)
+ *      void    pushFront(MyVector& V2)
+ *      void    pushRear(int val)
+ *      void    pushRear(MyVector& V2)
+ *      void    pushAt(int loc, int val)
+ *      int     popFront()
+ *      int     popRear()
+ *      int     popAt(int loc)
+ *      int     find(int val)
+ *      void    print()
+ *      void    print(ofstream& infile)
+ * 
+ * Private Methods:
+ *      - None
+ * 
+ * Usage: 
+ * 
+ *      MyVector v1;                // Create instance of MyVector
+ *      v1.pushFront(2);            // prepends 2 to vector
+ *      v1.pushRear(val);           // appends val to vector
+ *      int x = v1.popFront();      // pops front
+ *      int y = v1.popRear();       // pops rear
+ *      int p = v1.popAt(1);        // pops at index
+ *      int z = v1.find();          // finds index of an item
+ *      v1.print();                 // prints to stdout
+ *      v1.print(outfile);          // prints to output file    
+ *      
+ */
 class MyVector
 {
 private:
@@ -31,13 +94,31 @@ private:
     int size;   // Size of vector
 
 public:
+    /**
+     * Public: MyVector
+     * 
+     * Description:
+     *      Creates an empty instance of MyVector
+     * 
+     * Params:
+     *      - None
+     */
     MyVector() //Default constructor
     {
         head = tail = nullptr;
         size = 0;
     }
 
-    MyVector(MyVector& V2)
+    /**
+     * Public: MyVector
+     * 
+     * Description:
+     *      Creates an vector by coping another vector
+     * 
+     * Params:
+     *      - MyVector& : vector to be copied
+     */
+    MyVector(MyVector &V2)
     {
         head = tail = nullptr;
         size = 0;
@@ -151,18 +232,18 @@ public:
         }
     }
 
-    void pushAt(int loc, int x)
+    void pushAt(int loc, int val)
     {
         if (loc >= 0 && loc < size)
         {
-            Node *position = head;
+            Node *temp = head;
 
             for (int i = 0; i > loc; i++)
             {
-                position = position->next;
+                temp = temp->next;
             }
 
-            position->data = x;
+            temp->data = val;
         }
         else
         {
@@ -228,28 +309,28 @@ public:
 
     int popAt(int loc)
     {
-        if(!head)
+        if (!head)
         {
             cout << "\n<ERROR: Cannot pop from empty vector.>\n";
             return INTMAX;
         }
-        else if(loc < 0 || loc > size-1)
+        else if (loc < 0 || loc > size - 1)
         {
             cout << "\n<ERROR: Out of bounds.>\n";
             return INTMAX;
         }
-        else if(loc == 0)
+        else if (loc == 0)
         {
             return popFront();
         }
-        else if(loc == size-1)
+        else if (loc == size - 1)
         {
             return popRear();
         }
         else
         {
-            Node* temp = head;
-            for(int i = 0; i < loc; i++)
+            Node *temp = head;
+            for (int i = 0; i < loc; i++)
             {
                 temp = temp->next;
             }
@@ -257,18 +338,18 @@ public:
             temp->prev->next = temp->next;
             temp->next->prev = temp->prev;
             delete temp;
-            
+
             return returnMe;
         }
     }
 
     int find(int val)
     {
-        Node* temp = head;
+        Node *temp = head;
         int i = 0;
-        while(temp)
+        while (temp)
         {
-            if(val == temp->data)
+            if (val == temp->data)
             {
                 return i;
             }
@@ -285,13 +366,13 @@ public:
     {
         if (head) // If head exists
         {
-            Node *travel = head;        // travel points to head
+            Node *travel = head; // travel points to head
 
             cout << "[";
 
-            while (travel)             // Travels until travel == nullptr
+            while (travel) // Travels until travel == nullptr
             {
-                cout << travel->data;  // Print data from node
+                cout << travel->data; // Print data from node
                 if (travel->next)
                 {
                     cout << ", ";
