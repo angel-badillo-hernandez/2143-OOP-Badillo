@@ -20,7 +20,8 @@
 * 
 *  Files:     
 *       main.cpp        : driver program
-*       MyVector.hpp    : header file with definition and implementation  
+*       MyVector.hpp    : header file with definition and implementation
+*       input.dat       : input file
 *****************************************************************************/
 
 #include <iostream>
