@@ -8,11 +8,11 @@ The class has multiple constructors for creating a vector in different ways (arr
 
 ### Files
 
-|   #   | File         | Description                 |
-| :---: | ------------ | --------------------------- |
-|   1   | main.cpp     | Main driver of program      |
-|   2   | MyVector.hpp | MyVector Class              |
-|   3   | input.dat    | Input file used for testing |
+|   #   | File                         | Description                 |
+| :---: | ---------------------------- | --------------------------- |
+|   1   | [main.cpp](main.cpp)         | Main driver of program      |
+|   2   | [myVector.hpp](MyVector.hpp) | MyVector Class              |
+|   3   | [input.dat](input.dat)       | Input file used for testing |
 
 
 ### Instructions
