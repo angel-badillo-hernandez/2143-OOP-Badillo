@@ -36,7 +36,6 @@ public:
     Node *prev; // Points to previous node on list
     Node *next; // Points to next node on list
 
-    
     /**
      * Public: Node
      * 
@@ -204,16 +203,12 @@ public:
      */
     ~MyVector()
     {
-        if (head) // If not empty
+        while (head)
         {
-            for (int i = 0; i < size; i++) // Delete all
-            {
-                popFront();
-            }
+            popFront();
         }
     }
 
-    
     /**
      * Public: pushFront
      * 
@@ -245,7 +240,6 @@ public:
         size++;
     }
 
-    
     /**
      * Public: pushFront
      * 
@@ -264,12 +258,11 @@ public:
 
         while (temp)
         {
-            pushFront(temp->data);
+            pushFront(temp->data); // Pushes vector to the front right to left
             temp = temp->prev;
         }
     }
 
-    
     /**
      * Public: pushRear
      * 
@@ -301,7 +294,6 @@ public:
         size++;
     }
 
-    
     /**
      * Public: pushRear
      * 
@@ -320,12 +312,11 @@ public:
 
         while (temp)
         {
-            pushRear(temp->data);
+            pushRear(temp->data); // Pushes vector to the back left to right
             temp = temp->next;
         }
     }
 
-    
     /**
      * Public: pushAt
      * 
@@ -358,7 +349,6 @@ public:
         }
     }
 
-    
     /**
      * Public: popFront
      * 
@@ -399,7 +389,6 @@ public:
         }
     }
 
-    
     /**
      * Public: popRear
      * 
@@ -440,7 +429,6 @@ public:
         }
     }
 
-    
     /**
      * Public: popAt
      * 
@@ -455,7 +443,7 @@ public:
      */
     int popAt(int loc)
     {
-        if (!head)  // If vector is empty
+        if (!head) // If vector is empty
         {
             cout << "\n<ERROR: Cannot pop from empty vector.>\n";
             return INTMAX;
@@ -465,7 +453,7 @@ public:
             cout << "\n<ERROR: Out of bounds.>\n";
             return INTMAX;
         }
-        else if (loc == 0)  // loc is frontmost item
+        else if (loc == 0) // loc is frontmost item
         {
             return popFront();
         }
@@ -489,7 +477,6 @@ public:
         }
     }
 
-    
     /**
      * Public: find
      * 
@@ -513,7 +500,7 @@ public:
             {
                 return i;
             }
-            else                  // Move to next node
+            else // Move to next node
             {
                 temp = temp->next;
                 i++;
@@ -522,7 +509,6 @@ public:
         return -1;
     }
 
-    
     /**
      * Public: print
      * 
@@ -556,7 +542,6 @@ public:
         }
     }
 
-    
     /**
      * Public: print
      * 
