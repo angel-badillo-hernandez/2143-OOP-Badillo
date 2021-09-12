@@ -2,15 +2,23 @@
 ### Angel Badillo
 ### Description:
 
-Text here
+This program demonstrates the usage of MyVector class, which is essentially a double linked list that functions as a vector.
+The class has multiple constructors for creating a vector in different ways (array, copying, input file).
+
 
 ### Files
 
-|   #   | File            | Description                                        |
-| :---: | --------------- | -------------------------------------------------- |
-|   1   | filename        | MyVector Class 2|
+|   #   | File         | Description                 |
+| :---: | ------------ | --------------------------- |
+|   1   | main.cpp     | Main driver of program      |
+|   2   | MyVector.hpp | MyVector Class              |
+|   3   | input.dat    | Input file used for testing |
 
 
 ### Instructions
 
-- None
+- Just compile and run it.
+
+- Example Command:
+  - g++ main.cpp -o main
+  - ./main
