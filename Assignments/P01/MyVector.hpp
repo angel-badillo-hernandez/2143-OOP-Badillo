@@ -36,6 +36,19 @@ public:
     Node *prev; // Points to previous node on list
     Node *next; // Points to next node on list
 
+    
+    /**
+     * Public: Node
+     * 
+     * Description:
+     *      Constructs an instance of Node
+     * 
+     * Params:
+     *      int     : data of Node
+     *      Node*   : pointer to previous Node
+     *      Node*   : pointer to next Node
+     * 
+     */
     Node(int _data, Node *_prev = nullptr, Node *_next = nullptr)
     {
         data = _data;
@@ -116,7 +129,7 @@ public:
      *      Creates an vector by coping another vector
      * 
      * Params:
-     *      - MyVector& : vector to be copied
+     *      MyVector& : vector to be copied
      */
     MyVector(MyVector &V2)
     {
@@ -132,6 +145,16 @@ public:
         }
     }
 
+    /**
+     * Public: MyVector
+     * 
+     * Description:
+     *      Creates an instance of MyVector by copying an array
+     * 
+     * Params:
+     *      int*    : array of integers
+     *      int     : size of array
+     */
     MyVector(int *A, int _size) //Array constructor
     {
         head = tail = nullptr;
@@ -143,6 +166,15 @@ public:
         }
     }
 
+    /**
+     * Public: MyVector
+     * 
+     * Description:
+     *      Creates an instance of MyVector by reading in values from an input file
+     * 
+     * Params:
+     *      string  : file name of input file
+     */
     MyVector(string fileName) //Input file constructor
     {
         ifstream infile;
@@ -161,24 +193,46 @@ public:
         infile.close();
     }
 
-    ~MyVector() // Deletes
+    /**
+     * Public: ~MyVector
+     * 
+     * Description:
+     *      Deletes the vector
+     * 
+     * Params:
+     *      - None
+     */
+    ~MyVector()
     {
-        if (head)
+        if (head) // If not empty
         {
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < size; i++) // Delete all
             {
                 popFront();
             }
         }
     }
 
-    void pushFront(int val) // Pushes
+    
+    /**
+     * Public: pushFront
+     * 
+     * Description:
+     *      Prepends an item to the vector
+     * 
+     * Params:
+     *      int : item to be prepended
+     * 
+     * Returns:
+     *      void
+     */
+    void pushFront(int val)
     {
-        if (!head)
+        if (!head) // If empty vector
         {
             head = tail = new Node(val); // 1 item, so head & tail are same
         }
-        else if (head == tail)
+        else if (head == tail) // If one item
         {
             head = new Node(val, nullptr, head); // New head->next points to old head
             tail->prev = head;                   // tail->prev points to new head
@@ -191,6 +245,19 @@ public:
         size++;
     }
 
+    
+    /**
+     * Public: pushFront
+     * 
+     * Description:
+     *      Prepends an entire other vector to a vector
+     * 
+     * Params:
+     *      MyVector&   : vector object by reference
+     * 
+     * Returns:
+     *      void
+     */
     void pushFront(MyVector &V2)
     {
         Node *temp = V2.tail;
@@ -202,6 +269,19 @@ public:
         }
     }
 
+    
+    /**
+     * Public: pushRear
+     * 
+     * Description:
+     *      Appends an item to the vector
+     * 
+     * Params:
+     *      int : item to be appended
+     * 
+     * Returns:
+     *      void
+     */
     void pushRear(int val) // Pushes
     {
         if (!head)
@@ -221,6 +301,19 @@ public:
         size++;
     }
 
+    
+    /**
+     * Public: pushRear
+     * 
+     * Description:
+     *      Appends an entire other vector to a vector
+     * 
+     * Params:
+     *      MyVector&   : vector object by reference
+     * 
+     * Returns:
+     *      void
+     */
     void pushRear(MyVector &V2)
     {
         Node *temp = V2.head;
@@ -232,6 +325,20 @@ public:
         }
     }
 
+    
+    /**
+     * Public: pushAt
+     * 
+     * Description:
+     *      Pushes an item to a specific location in the vector
+     * 
+     * Params:
+     *      int : location in vector
+     *      int : item to be pushed
+     * 
+     * Returns:
+     *      void
+     */
     void pushAt(int loc, int val)
     {
         if (loc >= 0 && loc < size)
@@ -251,6 +358,19 @@ public:
         }
     }
 
+    
+    /**
+     * Public: popFront
+     * 
+     * Description:
+     *      Pops front item in vector
+     * 
+     * Params:
+     *      - None
+     * 
+     * Returns:
+     *      int : item that was popped from vector
+     */
     int popFront()
     {
         if (!head)
@@ -279,6 +399,19 @@ public:
         }
     }
 
+    
+    /**
+     * Public: popRear
+     * 
+     * Description:
+     *      Pops rear item from the vector
+     * 
+     * Params:
+     *      - None
+     * 
+     * Returns:
+     *      int : item that was popped from vector
+     */
     int popRear()
     {
         if (!tail)
@@ -286,7 +419,7 @@ public:
             cout << "\n<ERROR: Cannot pop from empty vector.>\n";
             return INTMAX;
         }
-        else if (head == tail)
+        else if (head == tail) // When only one item in vector
         {
             int returnMe = tail->data;
             delete tail;
@@ -299,7 +432,7 @@ public:
             int returnMe = tail->data; // Save data for return
             Node *deleteMe = tail;     // Save pointer for deletion
             tail = tail->prev;         // Move tail up
-            tail->next = nullptr;
+            tail->next = nullptr;      // Double linked list ends in nullptr
 
             delete deleteMe;
             size--;
@@ -307,27 +440,40 @@ public:
         }
     }
 
+    
+    /**
+     * Public: popAt
+     * 
+     * Description:
+     *      Pops an item from the vector at a given index
+     * 
+     * Params:
+     *      int : location (index) of item to be popped
+     * 
+     * Returns:
+     *      int : item that was removed from vector
+     */
     int popAt(int loc)
     {
-        if (!head)
+        if (!head)  // If vector is empty
         {
             cout << "\n<ERROR: Cannot pop from empty vector.>\n";
             return INTMAX;
         }
-        else if (loc < 0 || loc > size - 1)
+        else if (loc < 0 || loc > size - 1) // loc is out of bounds
         {
             cout << "\n<ERROR: Out of bounds.>\n";
             return INTMAX;
         }
-        else if (loc == 0)
+        else if (loc == 0)  // loc is frontmost item
         {
             return popFront();
         }
-        else if (loc == size - 1)
+        else if (loc == size - 1) // loc is rearmost item
         {
             return popRear();
         }
-        else
+        else // Travels through until it reaches index
         {
             Node *temp = head;
             for (int i = 0; i < loc; i++)
@@ -335,25 +481,39 @@ public:
                 temp = temp->next;
             }
             int returnMe = temp->data;
-            temp->prev->next = temp->next;
-            temp->next->prev = temp->prev;
+            temp->prev->next = temp->next; // Links temp->prev Node to temp->next Node
+            temp->next->prev = temp->prev; // and vice-versa
             delete temp;
 
             return returnMe;
         }
     }
 
+    
+    /**
+     * Public: find
+     * 
+     * Description:
+     *      Travels through the vector and searches for the index of an item
+     * 
+     * Params:
+     *      int : item to be searched for
+     * 
+     * Returns:
+     *      int :   index of item that was searched for
+     */
     int find(int val)
     {
         Node *temp = head;
         int i = 0;
+
         while (temp)
         {
-            if (val == temp->data)
+            if (val == temp->data) // If found, return index
             {
                 return i;
             }
-            else
+            else                  // Move to next node
             {
                 temp = temp->next;
                 i++;
@@ -362,6 +522,19 @@ public:
         return -1;
     }
 
+    
+    /**
+     * Public: print
+     * 
+     * Description:
+     *      Prints the entire vector to stdout
+     * 
+     * Params:
+     *      - None
+     * 
+     * Returns:
+     *      void
+     */
     void print()
     {
         if (head) // If head exists
@@ -383,6 +556,19 @@ public:
         }
     }
 
+    
+    /**
+     * Public: print
+     * 
+     * Description:
+     *      Prints entire vector to output file
+     * 
+     * Params:
+     *      ofstream&   : output file stream by reference
+     * 
+     * Returns:
+     *      void        : returns void but prints to file
+     */
     void print(ofstream &outfile)
     {
         if (head) // If head exists
