@@ -37,12 +37,26 @@ public:
         size = 0;
     }
 
+    MyVector(MyVector& V2)
+    {
+        head = tail = nullptr;
+        size = 0;
+
+        Node *temp = V2.head;
+
+        while (temp)
+        {
+            pushRear(temp->data);
+            temp = temp->next;
+        }
+    }
+
     MyVector(int *A, int _size) //Array constructor
     {
         head = tail = nullptr;
-        size = _size;
+        size = 0;
 
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < _size; i++)
         {
             pushRear(A[i]);
         }
@@ -98,22 +112,12 @@ public:
 
     void pushFront(MyVector &V2)
     {
-        if (!head)
-        {
-            this->size = V2.size;
+        Node *temp = V2.tail;
 
-            for (int i = 0; i < this->size; i++)
-            {
-                pushFront(V2.popRear());
-            }
-        }
-        else
+        while (temp)
         {
-            this->size += V2.size;
-            for (int i = 0; i < V2.size; i++)
-            {
-                pushFront(V2.popRear());
-            }
+            pushFront(temp->data);
+            temp = temp->prev;
         }
     }
 
@@ -138,26 +142,12 @@ public:
 
     void pushRear(MyVector &V2)
     {
-        if (!head && V2.head) // If this vector is empty, and v2 vector is not empty
-        {
-            this->size = V2.size;
-            Node *travel = V2.head;
+        Node *temp = V2.head;
 
-            for (int i = 0; i < V2.size; i++)
-            {
-                pushRear(travel->data);
-                travel = travel->next;
-            }
-        }
-        else if (head && V2.head) // If this vector is not empty, and V2 vector is not empty
+        while (temp)
         {
-            this->size += V2.size;
-            Node *travel = V2.head;
-
-            for (int i = 0; i < V2.size; i++)
-            {
-                pushRear(travel->data);
-            }
+            pushRear(temp->data);
+            temp = temp->next;
         }
     }
 
@@ -238,75 +228,57 @@ public:
 
     int popAt(int loc)
     {
-        if (loc == 0 && head) // loc 0 is head
+        if(!head)
         {
-            popFront();
-        }
-        else if (loc == size - 1 && tail) // loc (size-1) is tail
-        {
-            popRear();
-        }
-        else if (loc >= 0 && loc < size) // Anywhere (0,size-1)
-        {
-            Node *travel = head;
-
-            for (int i = 0; i > loc; i++)
-            {
-                travel = travel->next;
-            }
-
-            int returnMe = travel->data;       // Data to return
-            travel->prev->next = travel->next; // Linking previous item to next item
-            travel->next->prev = travel->prev; // Linking next item to previous item
-            delete travel;                     // Deallocating item
-            return returnMe;
-        }
-        else // Error catching
-        {
-            if (!head)
-            {
-                cout << "\n<ERROR: Cannot pop from empty vector.>\n";
-            }
-            else
-            {
-                cout << "\n<ERROR: Cannot pop out of bounds.>\n";
-            }
-
+            cout << "\n<ERROR: Cannot pop from empty vector.>\n";
             return INTMAX;
+        }
+        else if(loc < 0 || loc > size-1)
+        {
+            cout << "\n<ERROR: Out of bounds.>\n";
+            return INTMAX;
+        }
+        else if(loc == 0)
+        {
+            return popFront();
+        }
+        else if(loc == size-1)
+        {
+            return popRear();
+        }
+        else
+        {
+            Node* temp = head;
+            for(int i = 0; i < loc; i++)
+            {
+                temp = temp->next;
+            }
+            int returnMe = temp->data;
+            temp->prev->next = temp->next;
+            temp->next->prev = temp->prev;
+            delete temp;
+            
+            return returnMe;
         }
     }
 
     int find(int val)
     {
-        if (head)
+        Node* temp = head;
+        int i = 0;
+        while(temp)
         {
-            Node *temp = head;
-
-            if (val == head->data)
+            if(val == temp->data)
             {
-                return 0;
-            }
-            else if (val == tail->data)
-            {
-                return size - 1;
+                return i;
             }
             else
             {
-                for (int i = 0; i > size; i++)
-                {
-                    temp = temp->next;
-
-                    if (val == temp->data)
-                    {
-                        return i;
-                    }
-                }
+                temp = temp->next;
+                i++;
             }
         }
-        else
-        {
-            
-        }
+        return -1;
     }
 
     void print()
@@ -315,7 +287,7 @@ public:
         {
             Node *travel = head;        // travel points to head
 
-            cout << "\n[";
+            cout << "[";
 
             while (travel)             // Travels until travel == nullptr
             {
@@ -328,9 +300,26 @@ public:
             }
             cout << ']' << endl;
         }
-        else
+    }
+
+    void print(ofstream &outfile)
+    {
+        if (head) // If head exists
         {
-            cout << "\n<ERROR: Cannot print from empty vector.>\n";
+            Node *travel = head; // travel points to head
+
+            outfile << "[";
+
+            while (travel) // Travels until travel == nullptr
+            {
+                outfile << travel->data; // Print data from node
+                if (travel->next)
+                {
+                    outfile << ", ";
+                }
+                travel = travel->next; // Move to next node
+            }
+            outfile << ']' << endl;
         }
     }
 };
