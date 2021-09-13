@@ -81,6 +81,7 @@ public:
  *      int     find(int val)
  *      void    print()
  *      void    print(ofstream& infile)
+ *      int     getSize()
  * 
  * Private Methods:
  *      - None
@@ -95,7 +96,8 @@ public:
  *      int p = v1.popAt(1);        // pops at index
  *      int z = v1.find();          // finds index of an item
  *      v1.print();                 // prints to stdout
- *      v1.print(outfile);          // prints to output file    
+ *      v1.print(outfile);          // prints to output file 
+ *      int size = v1.getSize();    // returns size of vector   
  *      
  */
 class MyVector
@@ -573,5 +575,22 @@ public:
             }
             outfile << ']' << endl;
         }
+    }
+
+    /**
+     * Public: getSize()
+     * 
+     * Description:
+     *      Returns the size of the vector
+     * 
+     * Params:
+     *      - None
+     * 
+     * Returns:
+     *      int        : returns size of vector
+     */
+    int getSize()
+    {
+        return size;
     }
 };
