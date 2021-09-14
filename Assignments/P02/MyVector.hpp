@@ -371,10 +371,6 @@ public:
 
             temp->data = val;
         }
-        else
-        {
-            cout << "\n<ERROR: Cannot access out of bounds.>\n";
-        }
     }
 
     /**
@@ -393,8 +389,7 @@ public:
     {
         if (!head)
         {
-            cout << "\n<ERROR: Cannot pop from empty vector.>\n";
-            return INTMAX;
+            return INTMAX; // Cannot pop from empty vector
         }
         else if (head == tail)
         {
@@ -431,9 +426,8 @@ public:
      */
     int popRear()
     {
-        if (!tail)
+        if (!tail) // Cannot pop from empty vector
         {
-            cout << "\n<ERROR: Cannot pop from empty vector.>\n";
             return INTMAX;
         }
         else if (head == tail) // When only one item in vector
@@ -471,14 +465,12 @@ public:
      */
     int popAt(int loc)
     {
-        if (!head) // If vector is empty
+        if (!head) // Cannot pop from empty vector
         {
-            cout << "\n<ERROR: Cannot pop from empty vector.>\n";
             return INTMAX;
         }
-        else if (loc < 0 || loc > size - 1) // loc is out of bounds
+        else if (loc < 0 || loc > size - 1) // Cannot access out of bounds
         {
-            cout << "\n<ERROR: Out of bounds.>\n";
             return INTMAX;
         }
         else if (loc == 0) // loc is frontmost item
@@ -534,7 +526,7 @@ public:
                 i++;
             }
         }
-        return -1;
+        return -1; // Returns -1 if not found
     }
 
     /**
