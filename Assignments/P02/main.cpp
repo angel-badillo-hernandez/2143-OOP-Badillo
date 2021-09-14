@@ -26,4 +26,9 @@
 
 #include <iostream>
 #include <fstream>
-#
+#include <string>
+#include <MyVector>
+
+int main()
+{
+}
