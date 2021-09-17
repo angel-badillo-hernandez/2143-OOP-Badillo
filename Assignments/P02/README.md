@@ -6,9 +6,10 @@ Text here
 
 ### Files
 
-|   #   | File            | Description                                        |
-| :---: | --------------- | -------------------------------------------------- |
-|   1   | filename        | MyVector Class 2|
+|   #   | File                         | Description             |
+| :---: | ---------------------------- | ----------------------- |
+|   1   | [main.cpp](main.cpp)         | Main driver for program |
+|   2   | [myVector.hpp](MyVector.hpp) | MyVector Class v2       |
 
 
 ### Instructions

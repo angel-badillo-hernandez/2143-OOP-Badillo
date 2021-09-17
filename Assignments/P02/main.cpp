@@ -31,5 +31,5 @@
 
 int main()
 {
-  returb
+  return 0;
 }

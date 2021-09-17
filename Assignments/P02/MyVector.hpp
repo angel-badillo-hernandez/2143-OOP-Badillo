@@ -26,6 +26,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 #include <string>
 #include <limits>
 
@@ -611,4 +612,43 @@ public:
     {
         return size;
     }
+
+    friend ostream &operator<<(ostream &os, const MyVector &L)
+    {
+        os << fixed << setprecision(2);
+
+        Node *temp = L.head;
+
+        while (temp)
+        {
+            os << temp->data;
+            if (temp->next)
+            {
+                os << "->";
+            }
+            temp = temp->next;
+        }
+        return os;
+    }
+
+    int &operator[](int index)
+    {
+        if (index >= size)
+        {
+            cout << "Error: Off end of list";
+            int max = INTMAX;
+            return max;
+        }
+        else
+        {
+            Node *temp = head;
+            for (int i = 0; i < index; i++)
+            {
+                temp = temp->next;
+            }
+            return temp->data;
+        }
+    }
+
+    // Notes: Arithemetic operators: largest size is kept
 };
