@@ -31,5 +31,12 @@
 
 int main()
 {
+  MyVector v1;
+  v1.pushFront(1);
+
+  v1[0] = 2;
+
+  cout << v1[0];
+
   return 0;
 }

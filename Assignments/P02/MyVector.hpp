@@ -81,6 +81,12 @@ public:
         prev = _prev;
         next = _next;
     }
+     
+    friend ostream &operator<<(ostream &os, const Node &other)
+    {
+    os << other.data;
+    return os;
+    }
 };
 
 /**
@@ -633,11 +639,9 @@ public:
 
     int &operator[](int index)
     {
-        if (index >= size)
+        if (index < 0 || index >= size)
         {
-            cout << "Error: Off end of list";
-            int max = INTMAX;
-            return max;
+            exit(0);
         }
         else
         {
@@ -650,5 +654,14 @@ public:
         }
     }
 
+    MyVector& operator=(const MyVector &rhs)
+    {
+        if(this != &rhs)
+        {
+            this->~MyVector();
+            this->        
+        }
+    }
     // Notes: Arithemetic operators: largest size is kept
+
 };
