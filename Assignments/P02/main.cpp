@@ -31,12 +31,19 @@
 
 int main()
 {
-  MyVector v1;
-  v1.pushFront(1);
+  int a[5] = {1,1,2,3,4};
 
-  v1[0] = 2;
+  MyVector v1(a, 5);
+  MyVector v2 = v1;
+  v2.pushRear(6);
 
-  cout << v1[0];
+  cout << v1 << '\n';
+  cout << v2 << '\n';
+
+  cout << (v1/v2) << '\n';
+
+  
+
 
   return 0;
 }

@@ -165,7 +165,7 @@ public:
      * Params:
      *      MyVector& : vector to be copied
      */
-    MyVector(MyVector &V2)
+    MyVector(const MyVector &V2)
     {
         head = tail = nullptr;
         size = 0;
@@ -619,21 +619,22 @@ public:
         return size;
     }
 
-    friend ostream &operator<<(ostream &os, const MyVector &L)
+    friend ostream &operator<<(ostream &os, const MyVector &V)
     {
         os << fixed << setprecision(2);
 
-        Node *temp = L.head;
-
+        Node *temp = V.head;
+        os << "[ ";
         while (temp)
         {
             os << temp->data;
             if (temp->next)
             {
-                os << "->";
+                os << ", ";
             }
             temp = temp->next;
         }
+        os << " ]";
         return os;
     }
 
@@ -659,9 +660,152 @@ public:
         if(this != &rhs)
         {
             this->~MyVector();
-            this->        
+            MyVector other(rhs);
+            this->pushRear(other);
         }
+        return *this;
     }
+
+    bool operator==(const MyVector& rhs)
+    {
+        bool isEqual;
+
+        MyVector other = rhs;
+        if(this-> size != other.size)
+        {
+            isEqual = false;
+        }
+        else
+        {
+            for(int i = 0; i < this->size; i++)
+            {
+                isEqual = (*this)[i] == other[i];
+            }
+        }
+        return isEqual;
+        
+    }
+
+    bool operator!=(const MyVector& rhs)
+    {
+        return !(*this == rhs);
+    }
+
     // Notes: Arithemetic operators: largest size is kept
 
+    MyVector &operator+=(const MyVector &rhs)
+    {
+        MyVector other = rhs;
+
+        if (this->size >= other.size)
+        {
+            for (int i = 0; i < other.size; i++)
+            {
+                (*this)[i] += other[i];
+            }
+        }
+        else
+        {
+            
+            for (int i = 0; i < this->size; i++)
+            {
+                other[i] += (*this)[i];
+            }
+            this->~MyVector();
+            this->pushRear(other);
+        }
+        return *this;
+    }
+
+    MyVector &operator-=(const MyVector &rhs)
+    {
+        MyVector other = rhs;
+
+        if (this->size >= other.size)
+        {
+            for (int i = 0; i < other.size; i++)
+            {
+                (*this)[i] -= other[i];
+            }
+        }
+        else
+        {
+            
+            for (int i = 0; i < this->size; i++)
+            {
+                other[i] -= (*this)[i];
+            }
+            this->~MyVector();
+            this->pushRear(other);
+        }
+        return *this;
+    }
+
+    MyVector &operator*=(const MyVector &rhs)
+    {
+        MyVector other = rhs;
+
+        if (this->size >= other.size)
+        {
+            for (int i = 0; i < other.size; i++)
+            {
+                (*this)[i] *= other[i];
+            }
+        }
+        else
+        {
+            
+            for (int i = 0; i < this->size; i++)
+            {
+                other[i] *= (*this)[i];
+            }
+            this->~MyVector();
+            this->pushRear(other);
+        }
+        return *this;
+    }
+
+    MyVector &operator/=(const MyVector &rhs)
+    {
+        MyVector other = rhs;
+
+        if (this->size >= other.size)
+        {
+            for (int i = 0; i < other.size; i++)
+            {
+                (*this)[i] /= other[i];
+            }
+        }
+        else
+        {
+            
+            for (int i = 0; i < this->size; i++)
+            {
+                other[i] /= (*this)[i];
+            }
+            this->~MyVector();
+            this->pushRear(other);
+        }
+        return *this;
+    }
+
+    const MyVector &operator+(const MyVector &rhs) const
+    {
+        return MyVector(*this) += rhs;
+    }
+
+    const MyVector &operator-(const MyVector &rhs) const
+    {
+        return MyVector(*this) -= rhs;
+    }
+
+    const MyVector &operator*(const MyVector &rhs) const
+    {
+        return MyVector(*this) *= rhs;
+    }
+
+    const MyVector &operator/(const MyVector &rhs) const
+    {
+        return MyVector(*this) /= rhs;
+    }
 };
