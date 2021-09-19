@@ -789,9 +789,11 @@ public:
         return *this;
     }
 
+
+    // These don't work atm
     const MyVector &operator+(const MyVector &rhs) const
     {
-        return MyVector(*this) += rhs;
+        return (MyVector(*this) += rhs);
     }
 
     const MyVector &operator-(const MyVector &rhs) const

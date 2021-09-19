@@ -40,7 +40,9 @@ int main()
   cout << v1 << '\n';
   cout << v2 << '\n';
 
-  cout << (v1/v2) << '\n';
+  MyVector v3 = v1 + v2;
+
+  cout << v3;
 
   
 
