@@ -81,11 +81,11 @@ public:
         prev = _prev;
         next = _next;
     }
-     
+
     friend ostream &operator<<(ostream &os, const Node &other)
     {
-    os << other.data;
-    return os;
+        os << other.data;
+        return os;
     }
 };
 
@@ -638,6 +638,25 @@ public:
         return os;
     }
 
+    friend ofstream &operator<<(ofstream &of, const MyVector &V)
+    {
+        of << fixed << setprecision(2);
+
+        Node *temp = V.head;
+        of << "[ ";
+        while (temp)
+        {
+            of << temp->data;
+            if (temp->next)
+            {
+                of << ", ";
+            }
+            temp = temp->next;
+        }
+        of << " ]";
+        return of;
+    }
+
     int &operator[](int index)
     {
         if (index < 0 || index >= size)
@@ -655,9 +674,9 @@ public:
         }
     }
 
-    MyVector& operator=(const MyVector &rhs)
+    MyVector &operator=(const MyVector &rhs)
     {
-        if(this != &rhs)
+        if (this != &rhs)
         {
             this->~MyVector();
             MyVector other(rhs);
@@ -666,27 +685,26 @@ public:
         return *this;
     }
 
-    bool operator==(const MyVector& rhs)
+    bool operator==(const MyVector &rhs)
     {
         bool isEqual;
 
         MyVector other = rhs;
-        if(this-> size != other.size)
+        if (this->size != other.size)
         {
             isEqual = false;
         }
         else
         {
-            for(int i = 0; i < this->size; i++)
+            for (int i = 0; i < this->size; i++)
             {
                 isEqual = (*this)[i] == other[i];
             }
         }
         return isEqual;
-        
     }
 
-    bool operator!=(const MyVector& rhs)
+    bool operator!=(const MyVector &rhs)
     {
         return !(*this == rhs);
     }
@@ -706,10 +724,10 @@ public:
         }
         else
         {
-            
+
             for (int i = 0; i < this->size; i++)
             {
-                other[i] += (*this)[i];
+                (*this)[i] += other[i];
             }
             this->~MyVector();
             this->pushRear(other);
@@ -730,10 +748,10 @@ public:
         }
         else
         {
-            
+
             for (int i = 0; i < this->size; i++)
             {
-                other[i] -= (*this)[i];
+                (*this)[i] -= other[i];
             }
             this->~MyVector();
             this->pushRear(other);
@@ -754,10 +772,10 @@ public:
         }
         else
         {
-            
+
             for (int i = 0; i < this->size; i++)
             {
-                other[i] *= (*this)[i];
+                (*this)[i] *= other[i];
             }
             this->~MyVector();
             this->pushRear(other);
@@ -773,15 +791,29 @@ public:
         {
             for (int i = 0; i < other.size; i++)
             {
-                (*this)[i] /= other[i];
+                if (other[i] == 0)
+                {
+                    exit(0);
+                }
+                else
+                {
+                    (*this)[i] /= other[i];
+                }
             }
         }
         else
         {
-            
+
             for (int i = 0; i < this->size; i++)
             {
-                other[i] /= (*this)[i];
+                if (other[i] == 0)
+                {
+                    exit(0);
+                }
+                else
+                {
+                    (*this)[i] /= other[i];
+                }
             }
             this->~MyVector();
             this->pushRear(other);
@@ -789,8 +821,6 @@ public:
         return *this;
     }
 
-
-    
     const MyVector operator+(const MyVector &rhs) const
     {
         return MyVector(*this) += rhs;
