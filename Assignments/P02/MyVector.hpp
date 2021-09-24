@@ -637,7 +637,7 @@ public:
     {
         return size;
     }
-    
+
     /**
      * Public: operator<<
      * 
@@ -669,7 +669,7 @@ public:
         return os;
     }
 
-     /**
+    /**
      * Public: operator<<
      * 
      * Description:
@@ -700,7 +700,7 @@ public:
         return of;
     }
 
-     /**
+    /**
      * Public: operator[]
      * 
      * Description:
@@ -729,7 +729,7 @@ public:
         }
     }
 
-     /**
+    /**
      * Public: operator=
      * 
      * Description:
@@ -828,10 +828,10 @@ public:
         {
             for (i = 0; i < this->size; i++) // Loop through smallest list
             {
-                (*this)[i] += other[i];      // and add all values
+                (*this)[i] += other[i]; // and add all values
             }
 
-            while (i < other.size)           // Append leftover to this list
+            while (i < other.size) // Append leftover to this list
             {
                 this->pushRear(other[i]);
                 i++;
@@ -870,7 +870,7 @@ public:
             {
                 (*this)[i] -= other[i];
             }
-            
+
             while (i < other.size)
             {
                 this->pushRear(other[i]);
@@ -910,11 +910,11 @@ public:
             {
                 (*this)[i] *= other[i];
             }
-            
-            while(i<other.size)
+
+            while (i < other.size)
             {
-              this->pushRear(other[i]);
-              i++;
+                this->pushRear(other[i]);
+                i++;
             }
         }
         return *this;
@@ -965,11 +965,11 @@ public:
                     (*this)[i] /= other[i];
                 }
             }
-            
-            while(i<other.size)
+
+            while (i < other.size)
             {
-              this->pushRear(other[i]);
-              i++;
+                this->pushRear(other[i]);
+                i++;
             }
         }
         return *this;
@@ -992,7 +992,7 @@ public:
         return MyVector(*this) += rhs; // Creates copy of this, adds rhs to it
     }
 
-     /**
+    /**
      * Public: operator-
      * 
      * Description:
@@ -1009,7 +1009,7 @@ public:
         return MyVector(*this) -= rhs; // Creates copy of this, subs rhs from it
     }
 
-     /**
+    /**
      * Public: operator*
      * 
      * Description:
@@ -1026,7 +1026,7 @@ public:
         return MyVector(*this) *= rhs; // Creates copy of this, multiply by rhs
     }
 
-     /**
+    /**
      * Public: operator/
      * 
      * Description:
