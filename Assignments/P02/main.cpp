@@ -45,6 +45,7 @@ int main()
 
   ofstream fout;
   fout.open("output.txt");
+  fout << "P02\n" << "Angel Badillo\n" << "CMPS 2143\n\n";
 
   cout << v1[2] << endl;
   // writes out 3

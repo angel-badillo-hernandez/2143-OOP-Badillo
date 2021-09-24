@@ -1,1 +1,5 @@
+P02
+Angel Badillo
+CMPS 2143
+
 [ 1, 2, 3, 4, 9 ]
