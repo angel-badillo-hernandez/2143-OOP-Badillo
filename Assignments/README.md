@@ -6,4 +6,5 @@
 |   2   | [A04](A04)  | Basic Project Organization |
 |   3   | [P01](P01)  | MyVector Class             |
 |   4   | [P02](P02)  | MyVector Class 2           |
+|   5   | [A05](OOP_Primer)| Basic OOP Terminology |
 
