@@ -26,7 +26,7 @@
 *  Files:     
 *       main.cpp        : driver program
 *       MyVector.hpp    : header file with definition and implementation
-*
+*       output.txt      : output from program
 *****************************************************************************/
 
 #include <iostream>

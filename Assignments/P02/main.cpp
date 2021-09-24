@@ -26,7 +26,7 @@
 *  Files:     
 *       main.cpp        : driver program
 *       MyVector.hpp    : header file with definition and implementation
-*
+*       output.txt      : output of program
 *****************************************************************************/
 
 #include <iostream>
@@ -92,4 +92,7 @@ int main()
   MyVector v4 = v1;
   cout << (v4 == v1) << endl;
   // writes 1 to console (true) .
+
+  fout.close();
+  return 0;
 }
