@@ -13,6 +13,11 @@
 *        or prepend a double linked list to another double linked list.
 *        It can also add items to a specific location, search for an item
 *        and return the index, and remove an item at a specific location.
+*        In this second program, the [] bracket operator, equal-to operator,
+*        the not equal-to operator, the compound assignment operators and 
+*        arithmetic are implemented, so you can treat the vector as an array,
+*        check for equality, use compound assignment, and add, subtract,
+*        multiply, and divide.
 *        
 *  Usage:
 *       - g++ main.cpp -o main && ./main
@@ -35,8 +40,8 @@ int main()
   int a1[] = {1, 2, 3, 4, 5};
   int a2[] = {10, 20, 30};
 
-  MyVector v1(a1,5);
-  MyVector v2(a2,3);
+  MyVector v1(a1, 5);
+  MyVector v2(a2, 3);
 
   ofstream fout;
   fout.open("output.txt");

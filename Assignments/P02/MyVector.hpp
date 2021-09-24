@@ -13,6 +13,11 @@
 *        or prepend a double linked list to another double linked list.
 *        It can also add items to a specific location, search for an item
 *        and return the index, and remove an item at a specific location.
+*        In this second program, the [] bracket operator, equal-to operator,
+*        the not equal-to operator, the compound assignment operators and 
+*        arithmetic are implemented, so you can treat the vector as an array,
+*        check for equality, use compound assignment, and add, subtract,
+*        multiply, and divide.
 *        
 *  Usage:
 *       - g++ main.cpp -o main && ./main
@@ -21,7 +26,7 @@
 *  Files:     
 *       main.cpp        : driver program
 *       MyVector.hpp    : header file with definition and implementation
-*       input.dat       : input file
+*
 *****************************************************************************/
 
 #include <iostream>
@@ -81,12 +86,6 @@ public:
         prev = _prev;
         next = _next;
     }
-
-    friend ostream &operator<<(ostream &os, const Node &other)
-    {
-        os << other.data;
-        return os;
-    }
 };
 
 /**
@@ -98,23 +97,37 @@ public:
  *      to other vectors.
  * 
  * Public Methods:
- *              MyVector()
- *              MyVector(MyVector& V2)
- *              MyVector(int* A, int size)
- *              MyVector(string fileName)
- *              ~MyVector()
- *      void    pushFront(int val)
- *      void    pushFront(MyVector& V2)
- *      void    pushRear(int val)
- *      void    pushRear(MyVector& V2)
- *      void    pushAt(int loc, int val)
- *      int     popFront()
- *      int     popRear()
- *      int     popAt(int loc)
- *      int     find(int val)
- *      void    print()
- *      void    print(ofstream& infile)
- *      int     getSize()
+ *                 MyVector()
+ *                 MyVector(MyVector& V2)
+ *                 MyVector(int* A, int size)
+ *                 MyVector(string fileName)
+ *                 ~MyVector()
+ *        void     pushFront(int val)
+ *        void     pushFront(MyVector& V2)
+ *        void     pushRear(int val)
+ *        void     pushRear(MyVector& V2)
+ *        void     pushAt(int loc, int val)
+ *        int      popFront()
+ *        int      popRear()
+ *        int      popAt(int loc)
+ *        int      find(int val)
+ *        void     print()
+ *        void     print(ofstream& infile)
+ *        int      getSize()
+ * friend ostream  &operator<<(ostream &os, const MyVector &V)
+ * friend oftream  &operator<<(oftream &of, const MyVector &V)
+ *        int      &operator[](int index)
+ *        MyVector &operator=(const MyVector &rhs)
+ *        bool     operator==(const MyVector &rhs)
+ *        bool     operator!=(const MyVector &rhs)
+ *        MyVector &operator+=(const MyVector &rhs)
+ *        MyVector &operator-=(const MyVector &rhs)
+ *        MyVector &operator*=(const MyVector &rhs)
+ *        MyVector &operator/=(const MyVector &rhs)
+ *  const MyVector operator+(const MyVector &rhs) const
+ *  const MyVector operator-(const MyVector &rhs) const
+ *  const MyVector operator*(const MyVector &rhs) const
+ *  const MyVector operator/(const MyVector &rhs) const
  * 
  * Private Methods:
  *      - None
@@ -128,10 +141,16 @@ public:
  *      int y = v1.popRear();       // pops rear
  *      int p = v1.popAt(1);        // pops at index
  *      int z = v1.find();          // finds index of an item
- *      v1.print();                 // prints to stdout
+ *      v1.print();                 // prints to screen
  *      v1.print(outfile);          // prints to output file 
- *      int size = v1.getSize();    // returns size of vector   
- *      
+ *      cout << v1 << '\n';         // prints to os ostream
+ *      fout << v2 << '\n';         // prints to of ofstream
+ *      int size = v1.getSize();    // returns size of vector
+ *      v1[1] = 10;                 // [] bracket op 
+ *      v1 = v2;                    // assignment op
+ *      cout << (v1==v2);           // equal-to op  
+ *      v1 += v2;                   // Compound assignment
+ *      v1 = v1 - v2;               // Subtraction op
  */
 class MyVector
 {
@@ -618,7 +637,19 @@ public:
     {
         return size;
     }
-
+    
+    /**
+     * Public: operator<<
+     * 
+     * Description:
+     *      Prints entire vector to stdout
+     * 
+     * Params:
+     *      ostream&   : ostream by reference
+     * 
+     * Returns:
+     *      ostream&   : returns ostream by reference
+     */
     friend ostream &operator<<(ostream &os, const MyVector &V)
     {
         os << fixed << setprecision(2);
@@ -638,6 +669,18 @@ public:
         return os;
     }
 
+     /**
+     * Public: operator<<
+     * 
+     * Description:
+     *      Prints entire vector to output file stream
+     * 
+     * Params:
+     *      oftream&   : oftream by reference
+     * 
+     * Returns:
+     *      oftream&   : returns oftream by reference
+     */
     friend ofstream &operator<<(ofstream &of, const MyVector &V)
     {
         of << fixed << setprecision(2);
@@ -657,6 +700,18 @@ public:
         return of;
     }
 
+     /**
+     * Public: operator[]
+     * 
+     * Description:
+     *      Prints entire vector to atdout
+     * 
+     * Params:
+     *      int        : index by value
+     * 
+     * Returns:
+     *      int&       : returns data of Node by reference
+     */
     int &operator[](int index)
     {
         if (index < 0 || index >= size)
@@ -674,6 +729,18 @@ public:
         }
     }
 
+     /**
+     * Public: operator=
+     * 
+     * Description:
+     *      Assigns a vector to a vector
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      MyVector&         : returns Vector by reference
+     */
     MyVector &operator=(const MyVector &rhs)
     {
         if (this != &rhs)
@@ -685,6 +752,18 @@ public:
         return *this;
     }
 
+    /**
+     * Public: operator==
+     * 
+     * Description:
+     *      Tests for equality of two vectors
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      bool              : returns bool (true/false) by value
+     */
     bool operator==(const MyVector &rhs)
     {
         bool isEqual;
@@ -704,94 +783,165 @@ public:
         return isEqual;
     }
 
+    /**
+     * Public: operator!=
+     * 
+     * Description:
+     *      Tests for inequality of two vectors
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      bool              : returns bool by value
+     */
     bool operator!=(const MyVector &rhs)
     {
         return !(*this == rhs);
     }
 
-    // Notes: Arithemetic operators: largest size is kept
-
+    /**
+     * Public: operator+=
+     * 
+     * Description:
+     *      Compound assignment operator: addition
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      MyVector&         : returns Vector by reference
+     */
     MyVector &operator+=(const MyVector &rhs)
     {
         MyVector other = rhs;
+        int i = 0;
 
-        if (this->size >= other.size)
+        if (this->size >= other.size) // If this list is bigger than other
         {
-            for (int i = 0; i < other.size; i++)
+            for (i = 0; i < other.size; i++) // Loop through and add all values
             {
                 (*this)[i] += other[i];
             }
         }
-        else
+        else // If this list smaller than other
         {
-
-            for (int i = 0; i < this->size; i++)
+            for (i = 0; i < this->size; i++) // Loop through smallest list
             {
-                (*this)[i] += other[i];
+                (*this)[i] += other[i];      // and add all values
             }
-            this->~MyVector();
-            this->pushRear(other);
+
+            while (i < other.size)           // Append leftover to this list
+            {
+                this->pushRear(other[i]);
+                i++;
+            }
         }
         return *this;
     }
 
+    /**
+     * Public: operator-=
+     * 
+     * Description:
+     *      Compound assignment operator: subtraction
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      MyVector&         : returns Vector by reference
+     */
     MyVector &operator-=(const MyVector &rhs)
     {
         MyVector other = rhs;
+        int i = 0;
 
         if (this->size >= other.size)
         {
-            for (int i = 0; i < other.size; i++)
+            for (i = 0; i < other.size; i++)
             {
                 (*this)[i] -= other[i];
             }
         }
         else
         {
-
-            for (int i = 0; i < this->size; i++)
+            for (i = 0; i < this->size; i++)
             {
                 (*this)[i] -= other[i];
             }
-            this->~MyVector();
-            this->pushRear(other);
+            
+            while (i < other.size)
+            {
+                this->pushRear(other[i]);
+                i++;
+            }
         }
         return *this;
     }
 
+    /**
+     * Public: operator*=
+     * 
+     * Description:
+     *      Compound assignment operator: multiplication
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      MyVector&         : returns Vector by reference
+     */
     MyVector &operator*=(const MyVector &rhs)
     {
         MyVector other = rhs;
+        int i = 0;
 
         if (this->size >= other.size)
         {
-            for (int i = 0; i < other.size; i++)
+            for (i = 0; i < other.size; i++)
             {
                 (*this)[i] *= other[i];
             }
         }
         else
         {
-
-            for (int i = 0; i < this->size; i++)
+            for (i = 0; i < this->size; i++)
             {
                 (*this)[i] *= other[i];
             }
-            this->~MyVector();
-            this->pushRear(other);
+            
+            while(i<other.size)
+            {
+              this->pushRear(other[i]);
+              i++;
+            }
         }
         return *this;
     }
 
+    /**
+     * Public: operator/=
+     * 
+     * Description:
+     *      Compound assignment operator: division
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      MyVector&         : returns Vector by reference
+     */
     MyVector &operator/=(const MyVector &rhs)
     {
         MyVector other = rhs;
+        int i = 0;
 
         if (this->size >= other.size)
         {
-            for (int i = 0; i < other.size; i++)
+            for (i = 0; i < other.size; i++)
             {
-                if (other[i] == 0)
+                if (other[i] == 0) // Cannot divide by 0
                 {
                     exit(0);
                 }
@@ -804,9 +954,9 @@ public:
         else
         {
 
-            for (int i = 0; i < this->size; i++)
+            for (i = 0; i < this->size; i++)
             {
-                if (other[i] == 0)
+                if (other[i] == 0) // Cannot divide by 0
                 {
                     exit(0);
                 }
@@ -815,31 +965,81 @@ public:
                     (*this)[i] /= other[i];
                 }
             }
-            this->~MyVector();
-            this->pushRear(other);
+            
+            while(i<other.size)
+            {
+              this->pushRear(other[i]);
+              i++;
+            }
         }
         return *this;
     }
 
+    /**
+     * Public: operator+
+     * 
+     * Description:
+     *      Addition operator
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      const MyVector    : returns Vector by value
+     */
     const MyVector operator+(const MyVector &rhs) const
     {
-        return MyVector(*this) += rhs;
+        return MyVector(*this) += rhs; // Creates copy of this, adds rhs to it
     }
 
+     /**
+     * Public: operator-
+     * 
+     * Description:
+     *      Subtraction operator
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      const MyVector    : returns Vector by value
+     */
     const MyVector operator-(const MyVector &rhs) const
     {
-        return MyVector(*this) -= rhs;
+        return MyVector(*this) -= rhs; // Creates copy of this, subs rhs from it
     }
 
+     /**
+     * Public: operator*
+     * 
+     * Description:
+     *      Multiplication operator
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      const MyVector    : returns Vector by value
+     */
     const MyVector operator*(const MyVector &rhs) const
     {
-        return MyVector(*this) *= rhs;
+        return MyVector(*this) *= rhs; // Creates copy of this, multiply by rhs
     }
 
+     /**
+     * Public: operator/
+     * 
+     * Description:
+     *      Division operator
+     * 
+     * Params:
+     *      const MyVector&   : const Vector by reference
+     * 
+     * Returns:
+     *      const MyVector    : returns Vector by value
+     */
     const MyVector operator/(const MyVector &rhs) const
     {
-        return MyVector(*this) /= rhs;
+        return MyVector(*this) /= rhs; // Creates copy of this, divides by rhs
     }
-
-    // Abstraction, inheritance, polymorphism remember for test
 };
