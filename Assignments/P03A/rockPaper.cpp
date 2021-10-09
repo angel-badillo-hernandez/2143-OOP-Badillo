@@ -1,5 +1,5 @@
 #include <iostream>
-#include "emojis.h"    //https://github.com/99x/emojicpp
+//#include "emoji.h"    //https://github.com/99x/emojicpp
 #include <functional>  // needed for `bind`
 #include <map>
 #include <random>
