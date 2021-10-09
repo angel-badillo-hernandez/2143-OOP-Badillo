@@ -385,6 +385,7 @@ namespace emojicpp {
         {":fries:" , u8"\U0001F35F"},
         {":fried_shrimp:" , u8"\U0001F364"},
         {":frog:" , u8"\U0001F438"},
+        {":lizard:" , u8"\U0001F98E"},
         {":hatched_chick:" , u8"\U0001F425"},
         {":frowning:" , u8"\U0001F626"},
         {":fuelpump:" , u8"\U000026FD"},
