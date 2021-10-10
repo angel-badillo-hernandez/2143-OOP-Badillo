@@ -13,6 +13,7 @@ The class has multiple constructors for creating a vector in different ways (arr
 |   1   | [main.cpp](main.cpp)         | Main driver of program      |
 |   2   | [myVector.hpp](MyVector.hpp) | MyVector Class              |
 |   3   | [input.dat](input.dat)       | Input file used for testing |
+|   4   | [test.out](test.out)         | Output from test run        |
 
 
 ### Instructions
