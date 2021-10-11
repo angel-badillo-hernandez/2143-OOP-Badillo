@@ -48,15 +48,19 @@ using namespace std;
 
 int main()
 {
-    for (int i = 1; i <= 1; i++)
+    ofstream outfile("output.txt");
+    outfile << "CMPS-2143-101\n"
+            << "PO3A\n"
+            << "Angel Badillo\n\n";
+
+    for (int i = 1; i <= 25; i++)
     {
         cout << "Instance " << i << '\n';
         Player p1;
         Player p2;
 
-        cout << "Player 1's weapons: " << p1.weapon1 << " " << p1.weapon2 << '\n';
-        cout << "Player 2's weapons: " << p2.weapon1 << " " << p2.weapon2 << '\n';
-
-        battle(p1, p2);
+        battle(cout, p1, p2);    // Prints "battle" outcome to cout
+        battle(outfile, p1, p2); // Prints "battle" outcome to output file
     }
+    return 0;
 }

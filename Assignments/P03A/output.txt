@@ -1,0 +1,54 @@
+CMPS-2143-101
+PO3A
+Angel Badillo
+
+Player 2's 🗻 beat Player 1's 🔪
+
+Player 1's 🔪 beat Player 2's 📃
+
+Player 1's 🖖 beat Player 2's 🗻
+
+Player 2's 📃 beat Player 1's 🖖
+
+Player 1's 🗻 beat Player 2's 🔪
+
+Player 2's 🐸 beat Player 1's 🖖
+
+Player 1's 🔪 beat Player 2's 🐸
+
+Player 1's 🖖 beat Player 2's 🗻
+
+Player 2's 🔪 beat Player 1's 🖖
+
+Player 1's 📃 beat Player 2's 🖖
+
+Player 1's 📃 beat Player 2's 🖖
+
+Player 1's 🔪 beat Player 2's 🐸
+
+Player 2's 🔪 beat Player 1's 🐸
+
+Player 2's 📃 beat Player 1's 🗻
+
+Player 2's 🗻 beat Player 1's 🐸
+
+Player 2's 🖖 beat Player 1's 🐸
+
+Player 1's 🗻 beat Player 2's 🐸
+
+Player 2's 🗻 beat Player 1's 🐸
+
+Player 2's 🐸 beat Player 1's 🖖
+
+Player 1's 📃 beat Player 2's 🖖
+
+Player 2's 🖖 beat Player 1's 🔪
+
+Player 2's 🔪 beat Player 1's 🐸
+
+Player 2's 📃 beat Player 1's 🗻
+
+Player 2's 🐸 beat Player 1's 🖖
+
+Player 1's 🔪 beat Player 2's 📃
+
