@@ -48,15 +48,15 @@ using namespace std;
 
 int main()
 {
-    for (int i = 0; i <= 5; i++)
+    for (int i = 1; i <= 1; i++)
     {
-        Player p1; // gets two random weapons when constructed
-        Player p2; // same
-        cout << "\nPlayer 1:\n\n";
-        cout << Hands::Names[p1.weapon1] << ": " << p1.weapon1 << '\n';
-        cout << Hands::Names[p1.weapon2] << ": " << p1.weapon2 << '\n';
-        cout << "\nPlayer 2:\n\n";
-        cout << Hands::Names[p2.weapon1] << ": " << p2.weapon1 << '\n';
-        cout << Hands::Names[p2.weapon2] << ": " << p2.weapon2 << '\n';
+        cout << "Instance " << i << '\n';
+        Player p1;
+        Player p2;
+
+        cout << "Player 1's weapons: " << p1.weapon1 << " " << p1.weapon2 << '\n';
+        cout << "Player 2's weapons: " << p2.weapon1 << " " << p2.weapon2 << '\n';
+
+        battle(p1, p2);
     }
 }
