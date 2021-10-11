@@ -2,53 +2,93 @@ CMPS-2143-101
 PO3A
 Angel Badillo
 
+Instance 1
 Player 2's 🗻 beat Player 1's 🔪
 
+Instance 2
 Player 1's 🔪 beat Player 2's 📃
 
+Instance 3
 Player 1's 🖖 beat Player 2's 🗻
 
+Instance 4
 Player 2's 📃 beat Player 1's 🖖
 
+Instance 5
 Player 1's 🗻 beat Player 2's 🔪
 
+Instance 6
 Player 2's 🐸 beat Player 1's 🖖
 
+Instance 7
 Player 1's 🔪 beat Player 2's 🐸
 
+Instance 8
 Player 1's 🖖 beat Player 2's 🗻
 
+Instance 9
 Player 2's 🔪 beat Player 1's 🖖
 
+Instance 10
 Player 1's 📃 beat Player 2's 🖖
 
+Instance 11
 Player 1's 📃 beat Player 2's 🖖
 
+Instance 12
 Player 1's 🔪 beat Player 2's 🐸
 
+Instance 13
 Player 2's 🔪 beat Player 1's 🐸
 
+Instance 14
 Player 2's 📃 beat Player 1's 🗻
 
+Instance 15
 Player 2's 🗻 beat Player 1's 🐸
 
+Instance 16
 Player 2's 🖖 beat Player 1's 🐸
 
+Instance 17
 Player 1's 🗻 beat Player 2's 🐸
 
+Instance 18
 Player 2's 🗻 beat Player 1's 🐸
 
+Instance 19
 Player 2's 🐸 beat Player 1's 🖖
 
+Instance 20
 Player 1's 📃 beat Player 2's 🖖
 
+Instance 21
 Player 2's 🖖 beat Player 1's 🔪
 
+Instance 22
 Player 2's 🔪 beat Player 1's 🐸
 
+Instance 23
 Player 2's 📃 beat Player 1's 🗻
 
+Instance 24
 Player 2's 🐸 beat Player 1's 🖖
 
+Instance 25
 Player 1's 🔪 beat Player 2's 📃
+
+Instance 26
+Player 2's 📃 beat Player 1's 🗻
+
+Instance 27
+Player 1's 📃 beat Player 2's 🖖
+
+Instance 28
+Player 1's 🖖 beat Player 2's 🗻
+
+Instance 29
+Player 1's 📃 beat Player 2's 🖖
+
+Instance 30
+Player 2's 🔪 beat Player 1's 📃
 

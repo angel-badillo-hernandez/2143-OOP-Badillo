@@ -38,7 +38,6 @@
 *       RPSLS.hpp       : header file with definition and implementation of "game"
 *       output.txt      : output of program
 *****************************************************************************/
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -53,13 +52,16 @@ int main()
             << "PO3A\n"
             << "Angel Badillo\n\n";
 
-    for (int i = 1; i <= 25; i++)
+    // Running 30 instances of the battle of p1 vs p2
+    for (int i = 1; i <= 30; i++)
     {
         cout << "Instance " << i << '\n';
-        Player p1;
-        Player p2;
+        outfile << "Instance " << i << '\n';
 
-        battle(cout, p1, p2);    // Prints "battle" outcome to cout
+        Player p1; // Player 1 with random weapons
+        Player p2; // Player 2 with random weapons
+
+        battle(cout, p1, p2);    // Prints "battle" outcome to standard output
         battle(outfile, p1, p2); // Prints "battle" outcome to output file
     }
     return 0;

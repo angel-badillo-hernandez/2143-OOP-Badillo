@@ -30,7 +30,7 @@ any reason they have the same weapon again, the game is over and declared a tie.
 | :---: | ------------------------- | ----------------------- |
 |   1   | [main.cpp](main.cpp)      | Main driver for program |
 |   2   | [RPSLS.hpp](RPSLS.hpp)    | RPLS class              |
-|   3   | [output.txt](output.txt) | Output from my test run |
+|   3   | [output.txt](output.txt) | Output from my test run  |
 
 
 
