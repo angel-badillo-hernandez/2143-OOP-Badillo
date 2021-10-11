@@ -504,7 +504,7 @@ public:
                 result = spockVS(other.weapon2);
             }
         }
-        else
+        else // Players have different 1st weapons
         {
             if (this->weapon1 == ROCK)
             {
