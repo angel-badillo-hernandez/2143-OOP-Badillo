@@ -40,7 +40,6 @@
 
 * Interface
   - class with no implementation at all
-  - and no = 0
 
 * What can access private data members or member functions of a class?
   - friend keyword
