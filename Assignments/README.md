@@ -8,5 +8,3 @@
 |   4   | [P02](P02)        | MyVector Class 2                 |
 |   5   | [P03A](P03A)      | Rock Paper Scissors Lizard Spock |
 |   6   | [P03B](P03B)      | BolNiverse Fight Club            |
-|   7   | [A05](OOP_Primer) | Basic OOP Terminology            |
-
