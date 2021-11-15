@@ -20,14 +20,11 @@
 *       output.txt    : output of program
 *****************************************************************************/
 
-// attacker class : extends character class
-// Has a weapon : composition
-
-// Defender class : extends character class
-// Has a weapon : composition
-
-// Weapon class
-
-// GameClass
-// Has queues
-// Has vectors
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include "json.hpp"
+#include <cstdlib>
+#include <chrono>
+#include <thread>
