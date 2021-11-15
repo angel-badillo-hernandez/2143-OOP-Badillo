@@ -24,7 +24,21 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include "fighter.hpp"
 #include "json.hpp"
 #include <cstdlib>
 #include <chrono>
 #include <thread>
+
+using namespace std;
+
+int main()
+{
+    BaseFighter* jojo;
+    BaseFighter* dio;
+    jojo = new Wizard;
+    dio = new Warrior;
+    jojo->attack();
+    
+
+}
