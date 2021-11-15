@@ -2,10 +2,9 @@
 #include <random>
 #include <string>
 #include <vector>
-
 #include "weapon.hpp"
 #include "helpers.hpp"
-
+#include "dice.hpp"
 using namespace std;
 
 #pragma once
@@ -34,6 +33,7 @@ public:
     {
         hp -= x;
     }
+
     bool alive()
     {
         return hp > 0;
@@ -52,29 +52,60 @@ public:
 class Warrior : public BaseFighter
 {
 private:
-    Weapon weapon2;
+    Weapon *weapon2;
+
+public:
+    void attack(BaseFighter *&other)
+    {
+        int r = weapon2->use();
+        other->takeDamage(r);
+    }
 };
 
 class Wizard : public BaseFighter
 {
 private:
-    Weapon weapon2;
+    Weapon* weapon2;
+public:
+    void attack(BaseFighter *&other)
+    {
+        int r = weapon2->use();
+        other->takeDamage(r);
+    }
 };
 
 class Archer : public BaseFighter
 {
 private:
-    Weapon weapon2;
+    Weapon* weapon2;
+public:
+    void attack(BaseFighter *&other)
+    {
+        int r = weapon2->use();
+        other->takeDamage(r);
+    }
 };
 
 class Elf : public BaseFighter
 {
 private:
-    Weapon weapon2;
+    Weapon* weapon2;
+public:
+    void attack(BaseFighter *&other)
+    {
+        int r = weapon2->use();
+        other->takeDamage(r);
+    }
 };
 
 class DragonBorn : public BaseFighter
 {
 private:
-    Weapon weapon2;
+    Weapon* weapon2;
+public:
+    void attack(BaseFighter *&other)
+    {
+        int r = weapon2->use();
+        other->takeDamage(r);
+    }
 };
