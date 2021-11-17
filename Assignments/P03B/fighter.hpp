@@ -18,30 +18,19 @@ protected:
     double rr;
 
 public:
-    BaseFighter()
-    {
-        name = "None";
-        weapon1 = new Weapon;
-    }
+    BaseFighter() : name{"None"}, weapon1{nullptr} {}
 
-    virtual double attack()
-    {
-        return weapon1->use();
-    }
+    void setName(string n) { name = n; }
 
-    void takeDamage(int x)
-    {
-        hp -= x;
-    }
+    void setWeapon(Weapon w) { *weapon1 = w; }
 
-    bool alive()
-    {
-        return hp > 0;
-    }
-    int getHp()
-    {
-        return hp;
-    }
+    virtual void attack(BaseFighter *other) = 0;
+
+    void takeDamage(int x) { hp -= x; }
+
+    bool alive() { return hp > 0; }
+
+    int getHp() { return hp; }
 
     friend ostream &operator<<(ostream &os, const BaseFighter &f)
     {
@@ -52,60 +41,82 @@ public:
 class Warrior : public BaseFighter
 {
 private:
-    Weapon *weapon2;
+    Weapon *sword;
 
 public:
-    void attack(BaseFighter *&other)
-    {
-        int r = weapon2->use();
-        other->takeDamage(r);
-    }
+
+    /**
+     * @brief Uses an attack, and damages the enemy fighter.
+     * 
+     * @param other BaseFighter pointer of enemy
+     */
+    void attack(BaseFighter *&other) { other->takeDamage(sword->use()); }
 };
 
 class Wizard : public BaseFighter
 {
 private:
-    Weapon* weapon2;
+    Weapon *magic;
+
 public:
-    void attack(BaseFighter *&other)
-    {
-        int r = weapon2->use();
-        other->takeDamage(r);
-    }
+
+    /**
+     * @brief Uses an attack, and damages the enemy fighter.
+     * 
+     * @param other BaseFighter pointer of enemy
+     */
+    void attack(BaseFighter *&other) { other->takeDamage(magic->use()); }
 };
 
 class Archer : public BaseFighter
 {
 private:
-    Weapon* weapon2;
+    Weapon *bow;
+
 public:
-    void attack(BaseFighter *&other)
-    {
-        int r = weapon2->use();
-        other->takeDamage(r);
-    }
+
+    /**
+     * @brief Uses an attack, and damages the enemy fighter.
+     * 
+     * @param other BaseFighter pointer of enemy
+     */
+    void attack(BaseFighter *&other) { other->takeDamage(bow->use()); }
 };
 
 class Elf : public BaseFighter
 {
 private:
-    Weapon* weapon2;
+    Weapon *magicSword;
+
 public:
+
+    /**
+     * @brief Uses an attack, and damages the enemy fighter.
+     * 
+     * @param other BaseFighter pointer of enemy
+     */
     void attack(BaseFighter *&other)
     {
-        int r = weapon2->use();
-        other->takeDamage(r);
-    }
+        other->takeDamage(magicSword->use());
+    };
 };
 
-class DragonBorn : public BaseFighter
-{
-private:
-    Weapon* weapon2;
-public:
-    void attack(BaseFighter *&other)
+    class DragonBorn : public BaseFighter
     {
-        int r = weapon2->use();
-        other->takeDamage(r);
-    }
-};
+    private:
+        Weapon *magic;
+        Weapon *fireWeapon;
+
+    public:
+        void attack(BaseFighter *&other)
+        {
+            if (rand() % 2)
+            {
+                other->takeDamage(magic->use());
+            }
+            else
+            {
+                other->takeDamage(fireWeapon->use());
+            }
+        }
+    };

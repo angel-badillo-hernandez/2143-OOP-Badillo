@@ -38,7 +38,8 @@ int main()
     BaseFighter* dio;
     jojo = new Wizard;
     dio = new Warrior;
-    jojo->attack();
+    jojo->attack(dio);
+    
     
 
 }
