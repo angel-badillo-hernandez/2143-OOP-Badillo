@@ -12,6 +12,7 @@ using namespace std;
 class Weapon {
     string name;    // name of weapon
     string damage;  // damage per roll or "use"
+    string type;
     Dice*  die;
 
 public:
@@ -20,8 +21,8 @@ public:
      *  Also invokes the Dice class constructor with the "die" type
      */
     Weapon() {
-        name = "Fists&Feet";
-        damage = "1.d.4";
+        name = "None";
+        damage = "1.d.0";
         die = new Dice(damage);
     }
     /**

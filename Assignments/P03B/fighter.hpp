@@ -6,6 +6,7 @@
 #include "helpers.hpp"
 #include "dice.hpp"
 using namespace std;
+using json = nlohmann::json;
 
 #pragma once
 
@@ -13,7 +14,7 @@ class BaseFighter
 {
 protected:
     string name;
-    Weapon *weapon1;
+    Weapon *weapon;
     int hp;
     double rr;
 
@@ -22,7 +23,7 @@ public:
 
     void setName(string n) { name = n; }
 
-    void setWeapon(Weapon w) { *weapon1 = w; }
+    virtual void setWeapon(Weapon w) = 0;
 
     virtual void attack(BaseFighter *other) = 0;
 
@@ -41,7 +42,6 @@ public:
 class Warrior : public BaseFighter
 {
 private:
-    Weapon *sword;
 
 public:
 
@@ -50,14 +50,12 @@ public:
      * 
      * @param other BaseFighter pointer of enemy
      */
-    void attack(BaseFighter *&other) { other->takeDamage(sword->use()); }
+    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
+
 };
 
 class Wizard : public BaseFighter
 {
-private:
-    Weapon *magic;
-
 public:
 
     /**
@@ -65,14 +63,11 @@ public:
      * 
      * @param other BaseFighter pointer of enemy
      */
-    void attack(BaseFighter *&other) { other->takeDamage(magic->use()); }
+    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
 };
 
 class Archer : public BaseFighter
 {
-private:
-    Weapon *bow;
-
 public:
 
     /**
@@ -80,14 +75,11 @@ public:
      * 
      * @param other BaseFighter pointer of enemy
      */
-    void attack(BaseFighter *&other) { other->takeDamage(bow->use()); }
+    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
 };
 
 class Elf : public BaseFighter
 {
-private:
-    Weapon *magicSword;
-
 public:
 
     /**
@@ -95,28 +87,11 @@ public:
      * 
      * @param other BaseFighter pointer of enemy
      */
-    void attack(BaseFighter *&other)
-    {
-        other->takeDamage(magicSword->use());
-    };
+    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
 };
 
-    class DragonBorn : public BaseFighter
-    {
-    private:
-        Weapon *magic;
-        Weapon *fireWeapon;
-
-    public:
-        void attack(BaseFighter *&other)
-        {
-            if (rand() % 2)
-            {
-                other->takeDamage(magic->use());
-            }
-            else
-            {
-                other->takeDamage(fireWeapon->use());
-            }
-        }
-    };
+class DragonBorn : public BaseFighter
+{
+public:
+    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
+};
