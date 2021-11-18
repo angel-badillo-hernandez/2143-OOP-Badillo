@@ -27,3 +27,19 @@ vector<string> tokenize(string s,string delimiter){
     tokens.push_back(s);
     return tokens;
 }
+
+json getRandomWeapon(json Weapons){
+    int r = rand() % Weapons.size();
+    return Weapons[r];
+}
+
+json getRandomWeaponType(json Weapons,string wtype){
+  json tempWeapons = json::array();
+
+  for(int i=0;i<Weapons.size();i++){
+    if(Weapons[i]["Type"] == wtype){
+      tempWeapons.push_back(Weapons[i]);
+    }
+  }
+  return getRandomWeapon(tempWeapons);
+}

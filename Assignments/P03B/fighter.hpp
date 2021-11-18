@@ -19,7 +19,7 @@ protected:
     double rr;
 
 public:
-    BaseFighter() : name{"None"}, weapon1{nullptr} {}
+    BaseFighter() : name{""}, weapon{nullptr}, hp{0}, rr{0} {}
 
     void setName(string n) { name = n; }
 
@@ -35,7 +35,7 @@ public:
 
     friend ostream &operator<<(ostream &os, const BaseFighter &f)
     {
-        return os << "[" << f.name << " , " << *f.weapon1 << "]";
+        return os << "[" << f.name << " , " << *f.weapon << "]";
     }
 };
 

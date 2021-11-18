@@ -28,9 +28,9 @@ public:
     }
     Weapon(json weapon)
     {
-      name = weapon["name"];
-      damage = weapon["damage"];
-      type = weapon["type"];
+      name = weapon["Name"];
+      damage = weapon["Damage"];
+      type = weapon["Type"];
       
     }
 

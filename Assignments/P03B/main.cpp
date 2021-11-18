@@ -66,7 +66,7 @@ int main(){
     input >> jsonWeapons;  // 
     input.close();
 
-    Weapon s(getRandomWeaponType(jsonWeapons, "Melee"));
-    
+    Weapon w(getRandomWeaponType(jsonWeapons, "Melee"));
+    cout << w;
   return 0;
 }
