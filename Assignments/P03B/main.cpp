@@ -20,26 +20,53 @@
 *       output.txt    : output of program
 *****************************************************************************/
 
-#include <iostream>
+// #include <iostream>
+// #include <fstream>
+// #include <string>
+// #include <vector>
+// #include "fighter.hpp"
+// #include "json.hpp"
+// #include <cstdlib>
+// #include <chrono>
+// #include <thread>
+#include "helpers.hpp"
+#include "weapon.hpp"
 #include <fstream>
+#include <iostream>
 #include <string>
-#include <vector>
-#include "fighter.hpp"
-#include "json.hpp"
-#include <cstdlib>
-#include <chrono>
-#include <thread>
+#include "json.hpp" //https://github.com/nlohmann/json
 
 using namespace std;
+using json = nlohmann::json;
 
-int main()
-{
-    BaseFighter* jojo;
-    BaseFighter* dio;
-    jojo = new Wizard;
-    dio = new Warrior;
-    jojo->attack(dio);
-    
-    
+json getRandomWeapon(json Weapons){
+    int r = rand() % Weapons.size();
+    return Weapons[r];
+}
 
+json getRandomWeaponType(json Weapons,string wtype){
+  json tempWeapons = json::array();
+
+  for(int i=0;i<Weapons.size();i++){
+    if(Weapons[i]["Type"] == wtype){
+      tempWeapons.push_back(Weapons[i]);
+    }
+  }
+  return getRandomWeapon(tempWeapons);
+}
+
+int main(){
+    srand(time(0));
+    json jsonWeapons;
+    int Size;
+    string FileName;
+
+    // read a JSON file
+    ifstream input("weapons.json");
+    input >> jsonWeapons;  // 
+    input.close();
+
+    Weapon s(getRandomWeaponType(jsonWeapons, "Melee"));
+    
+  return 0;
 }

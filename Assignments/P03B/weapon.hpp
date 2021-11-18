@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include "json.hpp"
 #include "dice.hpp"
 #include "helpers.hpp"
 
 using namespace std;
-
+using json = nlohmann::json;
 #pragma once
 
 class Weapon {
@@ -21,19 +21,17 @@ public:
      *  Also invokes the Dice class constructor with the "die" type
      */
     Weapon() {
-        name = "None";
-        damage = "1.d.0";
-        die = new Dice(damage);
+        name = "";
+        damage = "";
+        type = "";
+        die = nullptr;
     }
-    /**
-     * @brief Overloaded Constructor for a new Base Weapon object
-     *  Also invokes the Dice class constructor with the "die" type
-     * @param choices-vector of string "die" choices like {"2.d.8","2.d.10","3.d.4"}
-     */
-    Weapon(vector< string > choices) {
-        name = "Fists&Feet";
-        damage = randomChoice(choices);
-        die = new Dice(damage);
+    Weapon(json weapon)
+    {
+      name = weapon["name"];
+      damage = weapon["damage"];
+      type = weapon["type"];
+      
     }
 
     double use() {

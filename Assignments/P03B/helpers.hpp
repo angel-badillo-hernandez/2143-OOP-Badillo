@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <random>
 #include <string>
-
+#include "json.hpp"
 using namespace std;
+using json = nlohmann::json;
 
 #pragma once
 
@@ -26,18 +26,4 @@ vector<string> tokenize(string s,string delimiter){
     }
     tokens.push_back(s);
     return tokens;
-}
-
-/**
- * @brief Chooses a random item from a vector of strings
- * 
- *      Example: 
- *          given => ["1.d.4","1.d.6","1.d.8"]
- *          Choose one of the 3 choices at random and return it.
- * 
- * @param choices 
- * @return string 
- */
-string randomChoice(vector<string> choices){
-    return choices[rand() % choices.size()];
 }
