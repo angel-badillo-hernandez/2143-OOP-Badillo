@@ -128,7 +128,7 @@ int main()
       Defenders.push_back(new Archer("defender"));
       Defenders.push_back(new Elf("defender"));
       Defenders.push_back(new DragonBorn("defender"));
-      numDefenders++;
+      numDefenders+=5;
   }
 
   // GAME LOOP

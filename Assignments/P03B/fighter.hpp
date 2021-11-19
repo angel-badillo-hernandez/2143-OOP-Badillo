@@ -51,7 +51,7 @@ using json = nlohmann::json;
 // Input file containing fighter data (names of fighters).
 #define FIGHTER_DATA_JSON "fighterData.json"
 // Boosts for the defenders so they can stand a chance.
-#define DHPBoost 1500 // +extra HP
+#define DHPBoost 2000 // +extra HP
 #define DRRBoost 15   // +extra regeneration
 // JSON object containing fighterData from .json
 const json fighterData = readJSON(FIGHTER_DATA_JSON);

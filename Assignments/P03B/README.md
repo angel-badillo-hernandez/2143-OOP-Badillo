@@ -19,6 +19,7 @@ E.g: 1000 attackers vs. 10 defenders. The program is fairly balanced so neither 
 |   8   | [json.hpp](json.hpp)                 | Header for using JSON in C++, credit to the creator(s) [here](https://github.com/nlohmann/json) |
 |   9   | [attackers.txt](attackers.txt)       | Data file used for generating specified amount of attackers                                     |
 |  10   | [banner.txt](banner.txt)             | Banner for this Program                                                                         |
+|  11   | [P03B.txt](P03B.txt)                 | Output for my test run                                                                          |
 
 
 
