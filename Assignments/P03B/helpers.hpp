@@ -43,3 +43,9 @@ json getRandomWeaponType(json Weapons,string wtype){
   }
   return getRandomWeapon(tempWeapons);
 }
+
+string getRandomName(vector<string> &names)
+{
+  int r = rand() % names.size();
+  return names[r];
+}

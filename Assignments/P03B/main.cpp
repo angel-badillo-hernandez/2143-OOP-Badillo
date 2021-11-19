@@ -39,22 +39,6 @@
 using namespace std;
 using json = nlohmann::json;
 
-json getRandomWeapon(json Weapons){
-    int r = rand() % Weapons.size();
-    return Weapons[r];
-}
-
-json getRandomWeaponType(json Weapons,string wtype){
-  json tempWeapons = json::array();
-
-  for(int i=0;i<Weapons.size();i++){
-    if(Weapons[i]["Type"] == wtype){
-      tempWeapons.push_back(Weapons[i]);
-    }
-  }
-  return getRandomWeapon(tempWeapons);
-}
-
 int main(){
     srand(time(0));
     json jsonWeapons;
@@ -65,7 +49,8 @@ int main(){
     ifstream input("weapons.json");
     input >> jsonWeapons;  // 
     input.close();
-
+    json wa = getRandomWeaponType(jsonWeapons, "Spell");
+    cout << wa;
     Weapon w(getRandomWeaponType(jsonWeapons, "Melee"));
     cout << w;
   return 0;

@@ -44,6 +44,10 @@ class Warrior : public BaseFighter
 private:
 
 public:
+    Warrior(string)
+    {
+        
+    }
 
     /**
      * @brief Uses an attack, and damages the enemy fighter.
@@ -57,7 +61,10 @@ public:
 class Wizard : public BaseFighter
 {
 public:
-
+    Wizard()
+    {
+        
+    }
     /**
      * @brief Uses an attack, and damages the enemy fighter.
      * 
