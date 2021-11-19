@@ -31,6 +31,7 @@
 // #include <thread>
 #include "helpers.hpp"
 #include "weapon.hpp"
+#include "fighter.hpp"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -41,17 +42,8 @@ using json = nlohmann::json;
 
 int main(){
     srand(time(0));
-    json jsonWeapons;
-    int Size;
-    string FileName;
-
-    // read a JSON file
-    ifstream input("weapons.json");
-    input >> jsonWeapons;  // 
-    input.close();
-    json wa = getRandomWeaponType(jsonWeapons, "Spell");
-    cout << wa;
-    Weapon w(getRandomWeaponType(jsonWeapons, "Melee"));
-    cout << w;
+    
+    BaseFighter* w;
+    w = new Wizard;
   return 0;
 }

@@ -1,169 +1,169 @@
 [
-    {
-      "Name": "Hand Crossbow",
-      "Damage": "1.d.6",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "Boomerang",
-      "Damage": "1.d.4",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "Heavy Crossbow",
-      "Damage": "1.d.10",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "Repeating Crossbow",
-      "Damage": "2.d.4",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "Longbow",
-      "Damage": "1.d.8",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "Light Crossbow",
-      "Damage": "1.d.8",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "Dart",
-      "Damage": "1.d.4",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "Shortbow",
-      "Damage": "1.d.6",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "War Hammer",
-      "Damage": "1.d.8",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Shortsword",
-      "Damage": "1.d.6",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Scimitar",
-      "Damage": "1.d.6",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Saber",
-      "Damage": "1.d.8",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Pike",
-      "Damage": "1.d.10",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Longsword",
-      "Damage": "1.d.8",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Lance",
-      "Damage": "1.d.12",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Greatsword",
-      "Damage": "2.d.6",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Great Maul",
-      "Damage": "3.d.6",
-      "Type": "Melee"
-    },
-    {
-      "Name": "Acid Arrow",
-      "Damage": "1.d.6",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Flame Blade",
-      "Damage": "1.d.6",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Lightning Bolt",
-      "Damage": "1.d.8",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Fireball",
-      "Damage": "1.d.8",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Ice Storm",
-      "Damage": "1.d.8",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Phantasmal Killer",
-      "Damage": "1.d.8",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Flame Strike",
-      "Damage": "2.d.4",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Cloudkill",
-      "Damage": "2.d.4",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Disintegrate",
-      "Damage": "2.d.6",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Fire Storm",
-      "Damage": "2.d.8",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Sunburst",
-      "Damage": "2.d.10",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Finger of Death",
-      "Damage": "3.d.8",
-      "Type": "Spell"
-    },
-    {
-      "Name": "Dagger",
-      "Cost": "5 gp",
-      "Damage": "1.d.4",
-      "Level": "1",
-      "Type": "Meelee"
-    },
-    {
-      "Name": "Sling Shot",
-      "Damage": "1.d.4",
-      "Type": "Ranged"
-    },
-    {
-      "Name": "Brass Knuckles",
-      "Damage": "1.d.6",
-      "Type": "Meelee"
-    },
-    {
-      "Name": "Fist&Feet",
-      "Damage": "1.d.4",
-      "Type": "Meelee"
-    }
+  {
+    "Name": "Hand Crossbow",
+    "Damage": "1.d.6",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "Boomerang",
+    "Damage": "1.d.4",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "Heavy Crossbow",
+    "Damage": "1.d.10",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "Repeating Crossbow",
+    "Damage": "2.d.4",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "Longbow",
+    "Damage": "1.d.8",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "Light Crossbow",
+    "Damage": "1.d.8",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "Dart",
+    "Damage": "1.d.4",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "Shortbow",
+    "Damage": "1.d.6",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "War Hammer",
+    "Damage": "1.d.8",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Shortsword",
+    "Damage": "1.d.6",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Scimitar",
+    "Damage": "1.d.6",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Saber",
+    "Damage": "1.d.8",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Pike",
+    "Damage": "1.d.10",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Longsword",
+    "Damage": "1.d.8",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Lance",
+    "Damage": "1.d.12",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Greatsword",
+    "Damage": "2.d.6",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Great Maul",
+    "Damage": "3.d.6",
+    "Type": "Melee"
+  },
+  {
+    "Name": "Acid Arrow",
+    "Damage": "1.d.6",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Flame Blade",
+    "Damage": "1.d.6",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Lightning Bolt",
+    "Damage": "1.d.8",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Fireball",
+    "Damage": "1.d.8",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Ice Storm",
+    "Damage": "1.d.8",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Phantasmal Killer",
+    "Damage": "1.d.8",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Flame Strike",
+    "Damage": "2.d.4",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Cloudkill",
+    "Damage": "2.d.4",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Disintegrate",
+    "Damage": "2.d.6",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Fire Storm",
+    "Damage": "2.d.8",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Sunburst",
+    "Damage": "2.d.10",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Finger of Death",
+    "Damage": "3.d.8",
+    "Type": "Spell"
+  },
+  {
+    "Name": "Dagger",
+    "Cost": "5 gp",
+    "Damage": "1.d.4",
+    "Level": "1",
+    "Type": "Meelee"
+  },
+  {
+    "Name": "Sling Shot",
+    "Damage": "1.d.4",
+    "Type": "Ranged"
+  },
+  {
+    "Name": "Brass Knuckles",
+    "Damage": "1.d.6",
+    "Type": "Meelee"
+  },
+  {
+    "Name": "Fist&Feet",
+    "Damage": "1.d.4",
+    "Type": "Meelee"
+  }
 ]

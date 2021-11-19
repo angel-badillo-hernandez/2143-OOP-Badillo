@@ -10,6 +10,7 @@ using json = nlohmann::json;
 
 #pragma once
 
+#define FIGHTER_DATA_JSON
 class BaseFighter
 {
 protected:
@@ -17,9 +18,9 @@ protected:
     Weapon *weapon;
     int hp;
     double rr;
-
+    static json fighterData;
 public:
-    BaseFighter() : name{""}, weapon{nullptr}, hp{0}, rr{0} {}
+    BaseFighter() : name{randName(fighterData)}, weapon{nullptr}, hp{0}, rr{0} {}
 
     void setName(string n) { name = n; }
 
@@ -39,14 +40,16 @@ public:
     }
 };
 
+json BaseFighter::fighterData{fileToJSON(FIGHTER_DATA_JSON)};
+
 class Warrior : public BaseFighter
 {
 private:
 
 public:
-    Warrior(string)
+    Warrior()
     {
-        
+        weapon = new Weapon(randWeapon(Weapon::weaponData));
     }
 
     /**

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include "json.hpp"
@@ -28,24 +29,35 @@ vector<string> tokenize(string s,string delimiter){
     return tokens;
 }
 
-json getRandomWeapon(json Weapons){
-    int r = rand() % Weapons.size();
-    return Weapons[r];
+json randWeapon(json obj){
+    int r = rand() % obj.size();
+    return obj[r];
 }
 
-json getRandomWeaponType(json Weapons,string wtype){
+json randWeapon(json obj,string wtype){
   json tempWeapons = json::array();
 
-  for(int i=0;i<Weapons.size();i++){
-    if(Weapons[i]["Type"] == wtype){
-      tempWeapons.push_back(Weapons[i]);
+  for(int i=0;i<obj.size();i++){
+    if(obj[i]["Type"] == wtype){
+      tempWeapons.push_back(obj[i]);
     }
   }
-  return getRandomWeapon(tempWeapons);
+  return randWeapon(tempWeapons);
 }
 
-string getRandomName(vector<string> &names)
+string randName(json obj)
 {
-  int r = rand() % names.size();
-  return names[r];
+  int r = rand() % obj.size();
+  return obj[r];
+}
+
+json fileToJSON(string filePath)
+{
+  ifstream input;
+  json obj;
+  input.open(filePath);
+  input >> obj;
+  input.close();
+
+  return obj;
 }
