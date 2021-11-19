@@ -13,7 +13,8 @@ using json = nlohmann::json;
 
 // Input file containing fighter data (names of fighters).
 #define FIGHTER_DATA_JSON "fighterData.json"
-
+#define DHPBoost 3000
+#define DRRBoost 15
 const json fighterData = readJSON(FIGHTER_DATA_JSON);
 
 class BaseFighter
@@ -57,40 +58,59 @@ public:
 class Warrior : public BaseFighter
 {
 public:
-    Warrior()
+    Warrior(string team)
     {
         weapon = new Weapon(randWeaponType(weaponData, "Melee"));
         health += rand() % 10;
         regenRate += 0;
+
+        if(team == "defender")
+        {
+            health += DHPBoost;
+            regenRate += DRRBoost;
+        }
     }
+
 };
 
 class Wizard : public BaseFighter
 {
 public:
-    Wizard()
+    Wizard(string team)
     {
         weapon = new Weapon(randWeaponType(weaponData, "Spell"));
         health -= rand() % 20;
         regenRate += 1;
+
+        if(team == "defender")
+        {
+            health += DHPBoost;
+            regenRate += DRRBoost;
+        }
     }
 };
 
 class Archer : public BaseFighter
 {
 public:
-    Archer()
+    Archer(string team)
     {
         weapon = new Weapon(randWeaponType(weaponData, "Ranged"));
         health -= rand() % 20;
         regenRate += 1;
+
+        if(team == "defender")
+        {
+            health += DHPBoost;
+            regenRate += DRRBoost;
+        }
     }
 };
 
 class Elf : public BaseFighter
 {
 public:
-    Elf()
+    Elf(string team)
     {
         int choice = rand() % 2;
         if (choice == 0)
@@ -99,13 +119,19 @@ public:
             weapon = new Weapon(randWeaponType(weaponData, "Melee"));
         health -= rand() % 5;
         regenRate += 0;
+
+        if(team == "defender")
+        {
+            health += DHPBoost;
+            regenRate += DRRBoost;
+        }
     }
 };
 
 class DragonBorn : public BaseFighter
 {
 public:
-    DragonBorn()
+    DragonBorn(string team)
     {
         int choice = rand() % 3;
         if (choice == 0)
@@ -116,5 +142,11 @@ public:
             weapon = new Weapon(randWeaponType(weaponData, "Melee"));
         health += rand() % 20;
         regenRate += 0;
+
+        if(team == "defender")
+        {
+            health += DHPBoost;
+            regenRate += DRRBoost;
+        }
     }
 };

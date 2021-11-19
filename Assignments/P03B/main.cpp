@@ -41,7 +41,7 @@ int main()
   infile.open("attackers.txt");
 
   int numAttackers;
-  cin >> numAttackers;
+  infile >> numAttackers;
 
   int warriorCount = 0;
   int wizardCount = 0;
@@ -53,7 +53,7 @@ int main()
   for (int i = 0; i < numAttackers; i++)
   {
     string fighterType;
-    cin >> fighterType;
+    infile >> fighterType;
 
     if (fighterType == "warrior")
     {
@@ -85,41 +85,41 @@ int main()
   BaseFighter *CaptDefender;
 
   for (int i = 0; i < warriorCount; i++)
-    Attackers.push_back(new Warrior);
+    Attackers.push_back(new Warrior("attacker"));
 
   for (int i = 0; i < wizardCount; i++)
-    Attackers.push_back(new Wizard);
+    Attackers.push_back(new Wizard("attacker"));
 
   for (int i = 0; i < archerCount; i++)
-    Attackers.push_back(new Archer);
+    Attackers.push_back(new Archer("attacker"));
 
   for (int i = 0; i < elfCount; i++)
-    Attackers.push_back(new Elf);
+    Attackers.push_back(new Elf("attacker"));
 
   for (int i = 0; i < dragonbornCount; i++)
-    Attackers.push_back(new DragonBorn);
+    Attackers.push_back(new DragonBorn("attacker"));
 
   for (int i = 0; i < Attackers.size() / 100; i++)
   {
       if((numAttackers / 100) % 5 == 0)
       {
-        Defenders.push_back(new Warrior);
+        Defenders.push_back(new Warrior("defender"));
       }
       else if((numAttackers / 100) % 5 == 1)
       {
-        Defenders.push_back(new Wizard);
+        Defenders.push_back(new Wizard("defender"));
       }
       else if((numAttackers / 100) % 5 == 2)
       {
-        Defenders.push_back(new Archer);
+        Defenders.push_back(new Archer("defender"));
       }
       else if((numAttackers / 100) % 5 == 3)
       {
-        Defenders.push_back(new Elf);
+        Defenders.push_back(new Elf("defender"));
       }
       else if((numAttackers / 100) % 5 == 4)
       {
-        Defenders.push_back(new DragonBorn);
+        Defenders.push_back(new DragonBorn("defender"));
       }
   }
 
@@ -135,7 +135,7 @@ int main()
     // sub game loop
     while (CaptAttacker->alive() && CaptDefender->alive())
     {
-      this_thread::sleep_for(chrono::milliseconds(10));
+      //this_thread::sleep_for(chrono::milliseconds(1));
       system("clear");
       cout << Attackers.size() << " v " << Defenders.size() << endl;
       CaptAttacker->attack(CaptDefender);
