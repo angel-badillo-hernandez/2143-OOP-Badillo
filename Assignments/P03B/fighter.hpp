@@ -5,34 +5,46 @@
 #include "weapon.hpp"
 #include "helpers.hpp"
 #include "dice.hpp"
+
 using namespace std;
 using json = nlohmann::json;
 
 #pragma once
 
-#define FIGHTER_DATA_JSON
+// Input file containing fighter data (names of fighters).
+#define FIGHTER_DATA_JSON "fighterData.json"
+
+const json fighterData = readJSON(FIGHTER_DATA_JSON);
+
 class BaseFighter
 {
 protected:
-    string name;
-    Weapon *weapon;
-    int hp;
-    double rr;
-    static json fighterData;
+    string name;    // Name of fighter
+    Weapon *weapon; // Weapon for fighter (e.g sword, bow, spell, etc.)
+    int health;     // Health points for fighter
+    int regenRate;  // Regeneration rate
+
 public:
-    BaseFighter() : name{randName(fighterData)}, weapon{nullptr}, hp{0}, rr{0} {}
+
+    BaseFighter() : name{randName(fighterData)}, weapon{nullptr}, health{100}, regenRate{1} {}
 
     void setName(string n) { name = n; }
 
-    virtual void setWeapon(Weapon w) = 0;
+    void setWeapon(Weapon w) { *weapon = w; }
 
-    virtual void attack(BaseFighter *other) = 0;
+    void setHp(int hp) { health = hp; }
 
-    void takeDamage(int x) { hp -= x; }
+    void setRR(int rr) { regenRate = rr; }
 
-    bool alive() { return hp > 0; }
+    void attack(BaseFighter *other) {other->takeDamage(weapon->use());}
 
-    int getHp() { return hp; }
+    void takeDamage(int x) { health -= x; }
+
+    void regen() { health += regenRate; }
+
+    bool alive() { return health > 0; }
+
+    int getHp() { return health; }
 
     friend ostream &operator<<(ostream &os, const BaseFighter &f)
     {
@@ -40,25 +52,17 @@ public:
     }
 };
 
-json BaseFighter::fighterData{fileToJSON(FIGHTER_DATA_JSON)};
+
 
 class Warrior : public BaseFighter
 {
-private:
-
 public:
     Warrior()
     {
-        weapon = new Weapon(randWeapon(Weapon::weaponData));
+        weapon = new Weapon(randWeaponType(weaponData, "Melee"));
+        health += rand() % 10;
+        regenRate += 0;
     }
-
-    /**
-     * @brief Uses an attack, and damages the enemy fighter.
-     * 
-     * @param other BaseFighter pointer of enemy
-     */
-    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
-
 };
 
 class Wizard : public BaseFighter
@@ -66,42 +70,51 @@ class Wizard : public BaseFighter
 public:
     Wizard()
     {
-        
+        weapon = new Weapon(randWeaponType(weaponData, "Spell"));
+        health -= rand() % 20;
+        regenRate += 1;
     }
-    /**
-     * @brief Uses an attack, and damages the enemy fighter.
-     * 
-     * @param other BaseFighter pointer of enemy
-     */
-    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
 };
 
 class Archer : public BaseFighter
 {
 public:
-
-    /**
-     * @brief Uses an attack, and damages the enemy fighter.
-     * 
-     * @param other BaseFighter pointer of enemy
-     */
-    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
+    Archer()
+    {
+        weapon = new Weapon(randWeaponType(weaponData, "Ranged"));
+        health -= rand() % 20;
+        regenRate += 1;
+    }
 };
 
 class Elf : public BaseFighter
 {
 public:
-
-    /**
-     * @brief Uses an attack, and damages the enemy fighter.
-     * 
-     * @param other BaseFighter pointer of enemy
-     */
-    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
+    Elf()
+    {
+        int choice = rand() % 2;
+        if (choice == 0)
+            weapon = new Weapon(randWeaponType(weaponData, "Spell"));
+        else
+            weapon = new Weapon(randWeaponType(weaponData, "Melee"));
+        health -= rand() % 5;
+        regenRate += 0;
+    }
 };
 
 class DragonBorn : public BaseFighter
 {
 public:
-    virtual void attack(BaseFighter *&other) { other->takeDamage(weapon->use()); }
+    DragonBorn()
+    {
+        int choice = rand() % 3;
+        if (choice == 0)
+            weapon = new Weapon(randWeaponType(weaponData, "Spell"));
+        else if (choice == 1)
+            weapon = new Weapon(randWeaponType(weaponData, "Ranged"));
+        else
+            weapon = new Weapon(randWeaponType(weaponData, "Melee"));
+        health += rand() % 20;
+        regenRate += 0;
+    }
 };

@@ -12,17 +12,18 @@ using json = nlohmann::json;
 // To easily change files
 #define WEAPONS_JSON "weapons.json"
 
+// .json file containing weapon data
+const json weaponData = readJSON(WEAPONS_JSON);
+
 class Weapon
 {
 private:
     string name;   // name of weapon
     string damage; // damage per roll or "use"
     string type;   // type of weapon (e.g melee, ranged, spell)
-    Dice *die;
+    Dice *die;     // Dice rolls for weapon
 
 public:
-
-    static json weaponData;
 
     /**
      * @brief Construct a new Base Weapon object
@@ -31,9 +32,9 @@ public:
     Weapon(): name{""}, damage{""}, type{""}, die{nullptr}{}
 
     Weapon(json data)
-        : name{data["name"]},
-          damage{data["damage"]},
-          type{data["type"]},
+        : name{data["Name"]},
+          damage{data["Damage"]},
+          type{data["Type"]},
           die{new Dice(damage)} {}
 
     double use()
@@ -46,5 +47,3 @@ public:
         return os << "[" << w.name << " , " << w.damage << "]";
     }
 };
-
-json Weapon::weaponData{fileToJSON(WEAPONS_JSON)};

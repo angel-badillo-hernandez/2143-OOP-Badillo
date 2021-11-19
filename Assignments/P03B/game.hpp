@@ -18,6 +18,7 @@ class Game
 private:
     vector<BaseFighter*> attackers;
     vector<BaseFighter*> defenders;
+    
 };
 
 int main(){
@@ -52,8 +53,8 @@ int main(){
       this_thread::sleep_for(chrono::milliseconds(10));
       system("clear");
       cout<<Attackers.size()<<" v "<<Defenders.size()<<endl;
-      CaptDefender->takeDamage(CaptAttacker->attack());
-      CaptAttacker->takeDamage(CaptDefender->attack());
+      CaptAttacker->attack(CaptDefender);
+      CaptDefender->attack(CaptAttacker);
     }
     if(!Attackers.back()->alive()){
       Attackers.pop_back();
