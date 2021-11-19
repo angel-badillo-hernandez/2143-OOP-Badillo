@@ -185,5 +185,7 @@ int main()
   cout << "Amount of Attackers left: " << Attackers.size() << '\n';
   outfile << "Amount of Attackers left: " << Attackers.size() << '\n';
 
+  cout << "Number of rounds fought: " << roundCount << '\n';
+  outfile << "Number of rounds fought: " << roundCount << '\n';
   outfile.close();
 }

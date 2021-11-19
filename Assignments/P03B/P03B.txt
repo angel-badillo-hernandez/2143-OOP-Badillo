@@ -1,5 +1,8 @@
+Angel Badillo
+Program 3B: Bolinverse Fight Club
 Defenders won!
 Number of Defenders: 50
-Amount of Defenders left: 1
+Amount of Defenders left: 3
 Number of Attackers: 1000
 Amount of Attackers left: 0
+Number of rounds fought: 1044
