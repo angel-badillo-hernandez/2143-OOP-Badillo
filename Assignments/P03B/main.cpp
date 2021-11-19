@@ -101,6 +101,7 @@ int main()
   vector<BaseFighter *> Attackers;
   vector<BaseFighter *> Defenders;
 
+  // Captains of the teams
   BaseFighter *CaptAttacker;
   BaseFighter *CaptDefender;
 
@@ -160,7 +161,8 @@ int main()
       Defenders.pop_back();
     }
   }
-
+  
+  outfile << "Angel Badillo\nProgram 3B: Bolinverse Fight Club\n";
   if(Attackers.size() == 0)
   {
     cout << "Defenders won!" << '\n';
