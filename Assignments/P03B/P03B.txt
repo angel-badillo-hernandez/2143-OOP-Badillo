@@ -1,0 +1,5 @@
+Attackers won!
+Number of Defenders: 10
+Amount of Defenders left: 0
+Number of Attackers: 1000
+Amount of Attackers left: 182

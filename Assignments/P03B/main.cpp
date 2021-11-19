@@ -123,32 +123,18 @@ int main()
   // Pushes Defenders to vector, following guideline of 1 fighter of each type for 100 attackers
   for (int i = 0; i < Attackers.size() / 100; i++)
   {
-    if ((numAttackers / 100) % 5 == 0)
-    {
       Defenders.push_back(new Warrior("defender"));
-    }
-    else if ((numAttackers / 100) % 5 == 1)
-    {
       Defenders.push_back(new Wizard("defender"));
-    }
-    else if ((numAttackers / 100) % 5 == 2)
-    {
       Defenders.push_back(new Archer("defender"));
-    }
-    else if ((numAttackers / 100) % 5 == 3)
-    {
       Defenders.push_back(new Elf("defender"));
-    }
-    else if ((numAttackers / 100) % 5 == 4)
-    {
       Defenders.push_back(new DragonBorn("defender"));
-    }
+      numDefenders++;
   }
 
   // GAME LOOP
   while (Attackers.size() && Defenders.size())
   {
-
+    roundCount++; // Counting rounds
     for (int i = 0; i < Defenders.size(); i++)
       if (i < 0)
         Defenders[i]->regen();
@@ -160,7 +146,8 @@ int main()
     {
       this_thread::sleep_for(chrono::milliseconds(1));
       system("clear");
-      cout << Attackers.size() << " v " << Defenders.size() << endl;
+      cout << "Defenders v Attackers\n";
+      cout << Defenders.size() << " v " << Attackers.size() << endl;
       CaptAttacker->attack(CaptDefender);
       CaptDefender->attack(CaptAttacker);
     }
@@ -177,13 +164,24 @@ int main()
   if(Attackers.size() == 0)
   {
     cout << "Defenders won!" << '\n';
+    outfile << "Defenders won!" << '\n';
   }
   else
   {
     cout << "Attackers won!" << '\n';
+    outfile << "Attackers won!" << '\n';
   }
-  cout << Defenders.size() << endl;
-  cout << Attackers.size() << endl;
+  cout << "Number of Defenders: " << numDefenders << '\n';
+  outfile << "Number of Defenders: " << numDefenders << '\n';
+
+  cout << "Amount of Defenders left: " << Defenders.size() << '\n';
+  outfile << "Amount of Defenders left: " << Defenders.size() << '\n';
+
+  cout << "Number of Attackers: " << numAttackers << '\n';
+  outfile << "Number of Attackers: " << numAttackers << '\n';
+
+  cout << "Amount of Attackers left: " << Attackers.size() << '\n';
+  outfile << "Amount of Attackers left: " << Attackers.size() << '\n';
 
   outfile.close();
 }
