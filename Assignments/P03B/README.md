@@ -26,7 +26,7 @@ E.g: 1000 attackers vs. 10 defenders. The program is fairly balanced so neither 
 ### Instructions
 
 - Just compile and run the program.
-
+- Note: fighterData.json and weapons.json must be present in the folder as is. attackers.txt must also be present, but contents can be altered, as long as it follows the same format (i.e contains the name of a kind of Fighter per line).
 - Example Command:
   - g++ main.cpp -o main
   - ./main
